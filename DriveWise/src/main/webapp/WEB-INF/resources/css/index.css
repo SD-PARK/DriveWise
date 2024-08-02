@@ -1,0 +1,242 @@
+/* Introduce */
+#intro {
+    width: 100vw; height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.img-box::after {
+    content: '';
+    width: 100vw; height: 100vh;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: url('../images/bg.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+.img-box .text-wrap {
+    position: absolute;
+    top: 50%; left: 40%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    width: auto;
+}
+.text-wrap > * { display: block; }
+.text-wrap .title { font-size: 94px; font-weight: bold; white-space: nowrap; }
+.text-wrap .subtitle { padding-left: 7px; font-size: 27px; }
+#intro > .text-wrap {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    bottom: 100px;
+    text-align: center;
+}
+#intro > .text-wrap .title {   
+    font-size: 70px; font-weight: 900;
+    color: #333;
+}
+#intro > .text-wrap .subtitle {
+    margin-top: 15px;
+    font-size: 21px;
+    color: #666;
+    line-height: 35px;
+}
+
+/* Main */
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    gap: 5vw;
+}
+.info-wrap {
+    width: 600px;
+    padding: 0 70px;
+}
+main .link-wrap { text-align: left; }
+.link-subtitle { font-size: 24px; word-break: keep-all; }
+main .link-title::after { height: 2px; }
+main .link-list-wrap {
+    font-size: 24px;
+    margin: 50px 0;
+}
+main .link-list-wrap > * {
+    cursor: pointer;
+    margin: 15px 0;
+    transition: margin-left 0.2s ease;
+}
+.link-list-wrap > .active {
+    color: #007BFF;
+    font-weight: bold;
+}
+main .link-list-wrap > *:hover {
+    color: #007BFF;
+    font-weight: bold;
+    margin-left: 10px;
+}
+main #carousel {
+    padding: 0 70px;
+}
+main .swiper-container {
+    width: 605px;
+    height: 600px;
+    overflow: hidden;
+    cursor: grab;
+    margin: auto;
+}
+.swiper-slide .swiper-image {
+    width: 600px;
+    height: 500px;
+    background-size: cover;
+}
+.swiper-slide .swiper-image.first {
+    background-image: url('../images/img-congestion.jpg');
+}
+.swiper-slide .swiper-image.second {
+    background-image: url('../images/img-safety.jpg');
+}
+.swiper-slide .swiper-image.third {
+    background-image: url('../images/img-route.png');
+}
+.swiper-slide .text-wrap {
+    position: absolute;
+    left: 10px; top: 470px;
+    padding: 0 20px; width: 100%;
+    box-sizing: border-box;
+}
+.swiper-slide .title {
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.swiper-slide .subtitle {
+    font-size: 20px;
+    width: 100%;
+    word-break: keep-all;
+    padding: 0;
+}
+
+/* Solution */
+#solution {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 200px 0;
+    gap: 5vw;
+}
+#solution > * { padding: 0 70px; }
+#solution .link-wrap { text-align: left; }
+#solution .link-title::after { height: 2px; }
+#solution .link-list-wrap {
+    font-size: 21px;
+    margin: 50px 0;
+}
+#solution > .list-wrap { width: 605px; padding: 0 120px 0 20px; }
+.record:nth-child(1) { border-top: 1px solid #333; }
+.record {
+    width: 705px;
+    border-bottom: 1px solid #333;
+    padding: 30px 0;
+}
+#solution .record-id {
+    font-size: 22px;
+    font-weight: bold;
+}
+#solution .record-title {
+    font-size: 29px;
+    font-weight: bold;
+    margin: 0;
+}
+#solution .record-desc {
+    font-size: 20px;
+    max-width: calc(100% - 200px);
+    word-break: keep-all;
+}
+#solution .record-img {
+    position: absolute;
+    top: 50%; right: 50px;
+    transform: translateY(-50%);
+    width: 100px;
+}
+
+/* ScrollUp */
+.scroll-up {
+    width: 4vh; height: 4vh;
+    position: fixed;
+    bottom: 50px; right: 50px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    cursor: pointer;
+    line-height: 4vh; text-align: center;
+    font-weight: bold; color: #fff;
+    transition: background-color 0.3s ease;
+}
+.scroll-up:hover {
+    background-color: rgba(0, 123, 255, 0.8);
+}
+
+@media screen and (max-width: 1200px) {
+    /* Intro */
+    .img-box .text-wrap { left: 40%; }
+    .text-wrap .title { font-size: 75px; font-weight: bold; white-space: nowrap; }
+    /* Main */
+    main { gap: 0px; }
+    main .link-list-wrap { font-size: 21px; }
+    main .info-wrap { width: 450px; padding-right: 0; }
+    main .swiper-container { width: 455px; height: 450px; }
+    .swiper-slide .swiper-image { width: 450px; height: 370px; }
+    .link-title { font-size: 32px; }
+    .link-subtitle { font-size: 22px; }
+    .swiper-slide .text-wrap { top: 320px; }
+    .swiper-slide .title { font-size: 32px; }
+    .swiper-slide .subtitle { font-size: 18px; }
+    /* Solution */
+    #solution { gap: 0px; }
+    #solution > .info-wrap { width: 450px; padding-right: 0px; }
+    #solution > .list-wrap { width: 455px; padding: 0 95px 0 45px; }
+    .record { width: 505px; }
+}
+@media screen and (max-width: 990px) {
+    .img-box .text-wrap { left: 50%; text-align: center; }
+    #intro .text-wrap { bottom: 15%; }
+    main { flex-direction: column; }
+    main .link-list-wrap { display: none; }
+    main .info-wrap { width: 90%; margin-bottom: 50px; }
+    main .link-wrap .link-title { font-size: 28px; }
+    main .text-wrap .title { font-size: 42px; }
+    main .text-wrap .subtitle { font-size: 23px; }
+    main .swiper-container { width: calc(80vw + 5px); height: 80vw; }
+    .swiper-slide .swiper-image {
+        width: 80vw; height: 64vw;
+    }
+    .swiper-slide .text-wrap {
+        left: 50%; transform: translateX(-50%);
+        top: 60vw;
+        text-align: center;
+    }
+    #solution { flex-direction: column; }
+    #solution > .info-wrap { width: 90%; margin-bottom: 50px; }
+    #solution > .list-wrap { width: 100%; padding: 0 70px; }
+    #solution .link-title { font-size: 28px }
+    .record { width: 80%; }
+}
+@media screen and (max-width: 768px) {
+    main .text-wrap .title { font-size: 5vw; }
+    main .text-wrap .subtitle { font-size: 3vw; }
+    #intro > .img-box .title { font-size: 62px; }
+    #intro > .img-box .subtitle { font-size: 24px; }
+    #intro > .text-wrap .title { font-size: 54px; }
+    #intro > .text-wrap .subtitle { font-size: 22px; }
+}

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveWise - 드라이브와이즈</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="logo-box">
+            <a href="/">
+                <img class="logo" src="images/logo-white.png" alt="드라이브와이즈 로고">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-menu">
+                <li>
+                    <a href="#">혼잡지표</a>
+                    <div class="sub-menu">
+                        <ul>
+                            <li><a href="#">개요</a></li>
+                            <li><a href="#">대시보드</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">안전지표</a>
+                    <div class="sub-menu">
+                        <ul>
+                            <li><a href="#">개요</a></li>
+                            <li><a href="#">대시보드</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="/route">최적 경로 안내</a>
+                    <div class="sub-menu">
+                        <ul>
+                            <li><a href="/route">최적 경로 안내</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="menu-box">
+            <div class="menu-btn">☰</div>
+        </div>
+        <div class="mobile-nav-wrap">
+            <div class="inner-wrap">
+                <div class="mobile-nav">
+                    <ul class="nav-menu">
+                        <li>
+                            <a href="#">혼잡지표</a>
+                        </li>
+                        <li>
+                            <a href="#">안전지표</a>
+                        </li>
+                        <li>
+                            <a href="/route">최적 경로 안내</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="info-wrap">
+                    <div class="link-wrap">
+                        <span class="link-title">팀 구성</span>
+                        <div class="link-list-wrap">
+                            <span>팀명: DriveWise</span>
+                            <span>팀원: 박상도, 박민후, 전세계, 한창민</span>
+                            <span>소속: 네이버클라우드캠프 AIaaS 8기</span>
+                        </div>
+                        <span class="link-title">문의사항</span>
+                        <div class="link-list-wrap">
+                            <span>Email: abcdef@google.com</span>
+                            <span>Phone: 010-1234-5678</span>
+                        </div>
+                    </div>
+                    <div class="icons-wrap">
+                        <a href="https://github.com/SD-PARK/DriveWise" class="sns" target="_blank">
+                            <img src="/images/icon-github.png" alt="Github 링크">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduce -->
+    <section id="intro">
+        <div class="img-box">
+            <div class="text-wrap">
+                <span class="title">Ease on Every Path</span>
+                <span class="subtitle">쾌적한 여정의 설계, 제주 교통의 미래</span>
+            </div>
+        </div>
+        <div class="text-wrap">
+            <span class="title">Ease on Every Path</span>
+            <span class="subtitle">
+                보다 안전하고 쾌적한 도로 환경을 구현합니다.<br>
+                드라이브와이즈는 지능형 교통 시스템을 통해 스마트시티 구현에 기여하고자 합니다.
+            </span>
+        </div>
+    </section>
+
+    <!-- Carousel -->
+    <main>
+        <div class="info-wrap" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+            <div class="link-wrap">
+                <span class="link-title">Products</span>
+                <p class="link-subtitle">
+                    혼잡·안전지수, 최적 경로 안내 등 다양한 교통지표를 통해 보다 나은 교통 환경을 제공합니다.
+                </p>
+                <div class="link-list-wrap">
+                    <p>혼잡지표</p>
+                    <p>안전지표</p>
+                    <p>최적 경로 안내</p>
+                </div>
+            </div>
+        </div>
+        <div id="carousel" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="swiper-image first"></div>
+                        <div class="text-wrap">
+                            <span class="title">혼잡지표</span>
+                            <span class="subtitle">실시간 데이터를 수집하여 도로별 혼잡 정보를 제공합니다.</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-image second"></div>
+                        <div class="text-wrap">
+                            <span class="title">안전지표</span>
+                            <span class="subtitle">도로의 상태 및 사고 발생 지표를 반영하여 도로별 안전지수를 시각화된 자료로 제공합니다.</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-image third"></div>
+                        <div class="text-wrap">
+                            <span class="title">최적 경로 안내</span>
+                            <span class="subtitle">도로의 혼잡·안전수준과 소요시간을 고려해 최적의 경로를 안내합니다.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Solution -->
+    <section id="solution">
+        <div class="info-wrap" data-aos="fade-up">
+            <div class="link-wrap pin">
+                <span class="link-title">Solution</span>
+                <p class="link-subtitle">
+                    스마트 교통 솔루션은 실시간 데이터와 머신러닝 기술을 활용하여, 교통 문제를 해결하고 쾌적한 이동 환경을 제공해 스마트시티 구현에 기여합니다.
+                </p>
+            </div>
+        </div>
+        <div class="list-wrap"> 
+            <div class="record" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                <p class="record-id">01</p>
+                <p class="record-title">교통혼잡지수 분석</p>
+                <p class="record-desc">교통·기상·도로 정보가 혼잡지수에 끼치는 영향을 분석하여 실시간 도로별 혼잡지수를 산출합니다.</p>
+                <img class="record-img" src="images/icon-congestion.png" alt="">
+            </div>
+            <div class="record" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                <p class="record-id">02</p>
+                <p class="record-title">교통안전지수 분석</p>
+                <p class="record-desc">교통·도로·시간 정보가 교통안전지수에 끼치는 영향을 분석하고 교통안전지수를 산출합니다.</p>
+                <img class="record-img" src="images/icon-safety.png" alt="">
+            </div>
+            <div class="record" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                <p class="record-id">03</p>
+                <p class="record-title">예상 통행시간 분석</p>
+                <p class="record-desc">
+                    시간·교통·기상 데이터가 도로 통과시간에 끼치는 영향을 분석해 도로 통행시간 예측 모델을 도출합니다.
+                </p>
+                <img class="record-img" src="images/icon-time.png" alt="">
+            </div>
+            <div class="record" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                <p class="record-id">04</p>
+                <p class="record-title">최적 경로 안내</p>
+                <p class="record-desc">
+                    혼잡·안전지수와 예상 통행시간을 바탕으로 실시간 경로평가지수를 생성하여 최적의 경로를 안내합니다.
+                </p>
+                <img class="record-img" src="images/icon-route.png" alt="">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-items">
+            <ul class="info-items">
+                <li class="item">
+                    <span class="title">Team</span>
+                    DriveWise
+                </li>
+                <li class="item">
+                    <span class="title">Member</span>
+                    <a class="link" href="https://github.com/SD-PARK/project-log">박상도</a>
+                    <a class="link" href="#">박민후</a>
+                    <a class="link" href="#">전세계</a>
+                    <a class="link" href="#">한창민</a>
+                </li>
+                <li class="item">
+                    <span class="title">Affiliation</span>
+                    네이버클라우드캠프 AIaaS 8기
+                </li>
+            </ul>
+            <div class="etc-txt-wrap">
+                <div class="etc-txt copyright">© DriveWise All Rights Reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="scroll-up" onclick="scrollUp()">↑</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/cash-dom/dist/cash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/header.js"></script>
+<script src="js/index.js"></script>
+</html>

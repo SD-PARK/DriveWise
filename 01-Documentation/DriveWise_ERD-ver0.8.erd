@@ -4,7 +4,7 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -1100,
+    "scrollTop": -1325,
     "scrollLeft": 0,
     "zoomLevel": 0.9,
     "show": 431,
@@ -47,7 +47,8 @@
       "xfkoGeuAGRaR-TYkBgt2c",
       "llRIyq0zcfIrfe9Dm8pQs",
       "O4pk4-3LfWI8OQEvxwRhx",
-      "3uO5g3EP3ffLoq2MELdI-"
+      "3uO5g3EP3ffLoq2MELdI-",
+      "X0f5jPQAPYD30B5fnxgX1"
     ],
     "relationshipIds": [
       "TFuYdQL1a1NF7Iflul0e5",
@@ -847,22 +848,22 @@
           "3gLIYGkDmsE2QdK_BX9hh"
         ],
         "ui": {
-          "x": 1512.9621,
-          "y": 320.9241,
+          "x": 1545.1844,
+          "y": 322.0352,
           "zIndex": 2219,
           "widthName": 62,
           "widthComment": 77,
           "color": "#607D8B"
         },
         "meta": {
-          "updateAt": 1722415158716,
+          "updateAt": 1722572288468,
           "createAt": 1722412088898
         }
       },
       "3uO5g3EP3ffLoq2MELdI-": {
         "id": "3uO5g3EP3ffLoq2MELdI-",
         "name": "link_segment_rwis_details",
-        "comment": "",
+        "comment": "링크별 세그먼트별 rwis 정보",
         "columnIds": [
           "znBLj23vLv1IKwq58pqEn",
           "8150O9pR7T-W2rItOTez4",
@@ -880,12 +881,37 @@
           "y": 1377.7823,
           "zIndex": 2275,
           "widthName": 137,
-          "widthComment": 60,
+          "widthComment": 153,
           "color": "#795548"
         },
         "meta": {
-          "updateAt": 1722569621261,
+          "updateAt": 1722572147248,
           "createAt": 1722568586218
+        }
+      },
+      "X0f5jPQAPYD30B5fnxgX1": {
+        "id": "X0f5jPQAPYD30B5fnxgX1",
+        "name": "jeju-visitor",
+        "comment": "제주도 일별 관광객 내도 정보",
+        "columnIds": [
+          "WuXi9qSada3EPzG3TyRNt",
+          "G9aW6xhRDphtD2sqUSPdI"
+        ],
+        "seqColumnIds": [
+          "WuXi9qSada3EPzG3TyRNt",
+          "G9aW6xhRDphtD2sqUSPdI"
+        ],
+        "ui": {
+          "x": 1342.2224,
+          "y": 1581.1112,
+          "zIndex": 2276,
+          "widthName": 60,
+          "widthComment": 159,
+          "color": "#009688"
+        },
+        "meta": {
+          "updateAt": 1722572304580,
+          "createAt": 1722570777056
         }
       }
     },
@@ -4969,6 +4995,46 @@
           "updateAt": 1722568754914,
           "createAt": 1722568739529
         }
+      },
+      "WuXi9qSada3EPzG3TyRNt": {
+        "id": "WuXi9qSada3EPzG3TyRNt",
+        "tableId": "X0f5jPQAPYD30B5fnxgX1",
+        "name": "date",
+        "comment": "일자",
+        "dataType": "DATE",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1722572257062,
+          "createAt": 1722572175321
+        }
+      },
+      "G9aW6xhRDphtD2sqUSPdI": {
+        "id": "G9aW6xhRDphtD2sqUSPdI",
+        "tableId": "X0f5jPQAPYD30B5fnxgX1",
+        "name": "visitors_count",
+        "comment": "입도 관광객 수",
+        "dataType": "INTEGER(6)",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 74,
+          "widthComment": 81,
+          "widthDataType": 62,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1722572266711,
+          "createAt": 1722572183997
+        }
       }
     },
     "relationshipEntities": {
@@ -6722,8 +6788,8 @@
           "columnIds": [
             "CWPqu7wu8Vem0dg8hXkcv"
           ],
-          "x": 1704.9621,
-          "y": 424.9241,
+          "x": 1737.1844,
+          "y": 426.0352,
           "direction": 8
         },
         "end": {
@@ -9937,7 +10003,8 @@
       -1,
       {
         "name": 1722568895421,
-        "ui.color": 1722569621261
+        "ui.color": 1722569621261,
+        "comment": 1722572147247
       }
     ],
     "8150O9pR7T-W2rItOTez4": [
@@ -9998,6 +10065,38 @@
       1722568739529,
       -1,
       {}
+    ],
+    "X0f5jPQAPYD30B5fnxgX1": [
+      "tableEntities",
+      1722570777055,
+      -1,
+      {
+        "name": 1722572120006,
+        "comment": 1722572170929,
+        "ui.color": 1722572276560
+      }
+    ],
+    "WuXi9qSada3EPzG3TyRNt": [
+      "tableColumnEntities",
+      1722572175320,
+      -1,
+      {
+        "name": 1722572253075,
+        "options(notNull)": 1722572244332,
+        "dataType": 1722572250061,
+        "comment": 1722572257062
+      }
+    ],
+    "G9aW6xhRDphtD2sqUSPdI": [
+      "tableColumnEntities",
+      1722572183997,
+      -1,
+      {
+        "name": 1722572200110,
+        "dataType": 1722572242190,
+        "options(notNull)": 1722572243821,
+        "comment": 1722572266711
+      }
     ]
   }
 }

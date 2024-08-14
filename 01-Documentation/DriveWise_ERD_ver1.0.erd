@@ -4,9 +4,9 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -869.3,
-    "scrollLeft": 0,
-    "zoomLevel": 1,
+    "scrollTop": -339,
+    "scrollLeft": -343,
+    "zoomLevel": 0.9,
     "show": 431,
     "database": 4,
     "databaseName": "",
@@ -159,15 +159,15 @@
           "Q21cYyCK0NL0_8OZrFgtN"
         ],
         "ui": {
-          "x": 1350.6666,
-          "y": 1360.3333,
+          "x": 1335.111,
+          "y": 1359.2222,
           "zIndex": 149,
           "widthName": 60,
           "widthComment": 77,
           "color": "#795548"
         },
         "meta": {
-          "updateAt": 1722568793616,
+          "updateAt": 1723619296733,
           "createAt": 1722251824582
         }
       },
@@ -306,7 +306,6 @@
         "name": "link_indicators",
         "comment": "링크별 지표",
         "columnIds": [
-          "jq_71AlpdWe1oOD4Ijw39",
           "iRS_q9xnIk7xQbjEXzEbK",
           "IQrTlQg8dnsXHkG2g4Hdj",
           "OFOohSHmeeEy0PChJ08ae",
@@ -334,7 +333,7 @@
           "color": "#FFC107"
         },
         "meta": {
-          "updateAt": 1722413790899,
+          "updateAt": 1723614123042,
           "createAt": 1722255510186
         }
       },
@@ -453,7 +452,7 @@
           "wre_0mOdpH7Y3vTgDGrLP"
         ],
         "ui": {
-          "x": 753.7487,
+          "x": 751.5265,
           "y": 460.6109,
           "zIndex": 1511,
           "widthName": 60,
@@ -461,7 +460,7 @@
           "color": "#795548"
         },
         "meta": {
-          "updateAt": 1722568778180,
+          "updateAt": 1723613154146,
           "createAt": 1722323711284
         }
       },
@@ -745,18 +744,18 @@
         "tableId": "LEJDRNqofuSvjfkPBZs4U",
         "name": "blocked_lanes",
         "comment": "통제중인 차선(개)",
-        "dataType": "HEXSTRING",
+        "dataType": "VARCHAR(8)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 76,
           "widthComment": 97,
-          "widthDataType": 64,
+          "widthDataType": 68,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722557904732,
+          "updateAt": 1723616663678,
           "createAt": 1722243490370
         }
       },
@@ -785,18 +784,18 @@
         "tableId": "58ucbdN4m3I_pJiTm6Nno",
         "name": "name",
         "comment": "도로등급 명칭",
-        "dataType": "VARCHAR2",
+        "dataType": "VARCHAR2(40)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 77,
-          "widthDataType": 61,
+          "widthDataType": 81,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412560485,
+          "updateAt": 1723612508618,
           "createAt": 1722251895406
         }
       },
@@ -805,18 +804,18 @@
         "tableId": "58ucbdN4m3I_pJiTm6Nno",
         "name": "code",
         "comment": "도로등급 코드",
-        "dataType": "INTEGER(3)",
+        "dataType": "NUMBER(3)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
           "widthComment": 77,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722340918758,
+          "updateAt": 1723612505457,
           "createAt": 1722252398547
         }
       },
@@ -865,18 +864,18 @@
         "tableId": "YG6cD-EOuTag5kwz--olY",
         "name": "code",
         "comment": "도로유형 코드",
-        "dataType": "INTEGER(1)",
+        "dataType": "NUMBER(1)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
           "widthComment": 77,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412376045,
+          "updateAt": 1723612517605,
           "createAt": 1722252898710
         }
       },
@@ -885,18 +884,18 @@
         "tableId": "YG6cD-EOuTag5kwz--olY",
         "name": "name",
         "comment": "도로유형 명칭",
-        "dataType": "VARCHAR2",
+        "dataType": "VARCHAR2(40)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 77,
-          "widthDataType": 61,
+          "widthDataType": 81,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412555499,
+          "updateAt": 1723612521006,
           "createAt": 1722252910119
         }
       },
@@ -925,18 +924,18 @@
         "tableId": "N-6EejSLV6cEXSXNPuYQG",
         "name": "id",
         "comment": "행정구역(읍면동) ID",
-        "dataType": "INTEGER(10)",
+        "dataType": "NUMBER(10)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
           "widthComment": 108,
-          "widthDataType": 68,
+          "widthDataType": 70,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722476719508,
+          "updateAt": 1723612462868,
           "createAt": 1722253434151
         }
       },
@@ -945,18 +944,18 @@
         "tableId": "N-6EejSLV6cEXSXNPuYQG",
         "name": "name",
         "comment": "행정구역(읍면동) 명칭",
-        "dataType": "VARCHAR2",
+        "dataType": "VARCHAR2(40)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 121,
-          "widthDataType": 61,
+          "widthDataType": 81,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412680390,
+          "updateAt": 1723612466332,
           "createAt": 1722253442197
         }
       },
@@ -965,18 +964,18 @@
         "tableId": "GeZrQVHSEZtlCgSUi-wvr",
         "name": "id",
         "comment": "노드 ID",
-        "dataType": "INTEGER(10)",
+        "dataType": "NUMBER(10)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 68,
+          "widthDataType": 70,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412641684,
+          "updateAt": 1723612475159,
           "createAt": 1722253547374
         }
       },
@@ -985,18 +984,18 @@
         "tableId": "GeZrQVHSEZtlCgSUi-wvr",
         "name": "name",
         "comment": "노드 명칭",
-        "dataType": "VARCHAR2",
+        "dataType": "VARCHAR2(40",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 61,
+          "widthDataType": 77,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412119404,
+          "updateAt": 1723612480505,
           "createAt": 1722253561635
         }
       },
@@ -1105,18 +1104,18 @@
         "tableId": "LEJDRNqofuSvjfkPBZs4U",
         "name": "id",
         "comment": "통제구간 ID",
-        "dataType": "INTEGER(5)",
+        "dataType": "NUMBER(5)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
           "widthComment": 65,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391928939,
+          "updateAt": 1723615888213,
           "createAt": 1722255187241
         }
       },
@@ -1125,18 +1124,18 @@
         "tableId": "LEJDRNqofuSvjfkPBZs4U",
         "name": "explanation",
         "comment": "통제 상세설명",
-        "dataType": "VARCHAR2",
+        "dataType": "VARCHAR2(1000)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 64,
           "widthComment": 77,
-          "widthDataType": 61,
+          "widthDataType": 94,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722392155529,
+          "updateAt": 1723616667684,
           "createAt": 1722255355422
         }
       },
@@ -1165,18 +1164,18 @@
         "tableId": "LFKtV5ih5weqBDbxSn1Up",
         "name": "date_time",
         "comment": "일시",
-        "dataType": "DATETIME",
+        "dataType": "DATE",
         "default": "",
-        "options": 8,
+        "options": 10,
         "ui": {
-          "keys": 0,
+          "keys": 1,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722340388493,
+          "updateAt": 1723615851368,
           "createAt": 1722255544648
         }
       },
@@ -1205,18 +1204,18 @@
         "tableId": "LFKtV5ih5weqBDbxSn1Up",
         "name": "tci",
         "comment": "교통혼잡지수",
-        "dataType": "DOUBLE",
+        "dataType": "NUMBER(18, 15)",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 74,
-          "widthDataType": 60,
+          "widthDataType": 89,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391295426,
+          "updateAt": 1723614980945,
           "createAt": 1722255552825
         }
       },
@@ -1245,18 +1244,18 @@
         "tableId": "kbLOVaYnNSbFKME8tUjjU",
         "name": "visibility",
         "comment": "노면 시정(m)",
-        "dataType": "INTEGER(5)",
+        "dataType": "NUMBER(5)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 71,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722414120692,
+          "updateAt": 1723618662533,
           "createAt": 1722256108020
         }
       },
@@ -1265,18 +1264,18 @@
         "tableId": "kbLOVaYnNSbFKME8tUjjU",
         "name": "snowfall_amount",
         "comment": "노면 적설량(cm)",
-        "dataType": "INTEGER(2)",
+        "dataType": "NUMBER(2)",
         "default": "0",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 91,
           "widthComment": 88,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722414112812,
+          "updateAt": 1723618668547,
           "createAt": 1722256108481
         }
       },
@@ -1285,18 +1284,18 @@
         "tableId": "kbLOVaYnNSbFKME8tUjjU",
         "name": "water_film",
         "comment": "노면 수막두께(cm)",
-        "dataType": "INTEGER(2)",
+        "dataType": "NUMBER(2)",
         "default": "0",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 100,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722414115545,
+          "updateAt": 1723618672579,
           "createAt": 1722256133271
         }
       },
@@ -1365,18 +1364,18 @@
         "tableId": "VvyhLMotwH5wW_pdhHQ9I",
         "name": "name",
         "comment": "노면상태 명칭",
-        "dataType": "VARCHAR2",
+        "dataType": "VARCHAR2(40)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 77,
-          "widthDataType": 61,
+          "widthDataType": 81,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722392161377,
+          "updateAt": 1723618604240,
           "createAt": 1722256378913
         }
       },
@@ -1445,7 +1444,7 @@
         "tableId": "mhgndzeJ2lnW5y6puiGQh",
         "name": "date_time",
         "comment": "일시",
-        "dataType": "DATETIME",
+        "dataType": "DATE",
         "default": "",
         "options": 10,
         "ui": {
@@ -1456,7 +1455,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391967073,
+          "updateAt": 1723616520519,
           "createAt": 1722256587217
         }
       },
@@ -1485,18 +1484,18 @@
         "tableId": "mhgndzeJ2lnW5y6puiGQh",
         "name": "travel_time",
         "comment": "통행시간(초)",
-        "dataType": "INTEGER(4)",
+        "dataType": "NUMBER(4)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 69,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722392115233,
+          "updateAt": 1723616534234,
           "createAt": 1722256587513
         }
       },
@@ -1525,18 +1524,18 @@
         "tableId": "mhgndzeJ2lnW5y6puiGQh",
         "name": "speed",
         "comment": "평균속도(km/h)",
-        "dataType": "INTEGER(3)",
+        "dataType": "NUMBER(3)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 85,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412893366,
+          "updateAt": 1723616536094,
           "createAt": 1722256696322
         }
       },
@@ -1545,7 +1544,7 @@
         "tableId": "2EyfiFC6rxd7_oN7sJSoe",
         "name": "date_time",
         "comment": "이벤트 일시",
-        "dataType": "DATETIME",
+        "dataType": "DATE",
         "default": "",
         "options": 8,
         "ui": {
@@ -1556,7 +1555,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722414079151,
+          "updateAt": 1723615846294,
           "createAt": 1722256751590
         }
       },
@@ -1565,7 +1564,7 @@
         "tableId": "LEJDRNqofuSvjfkPBZs4U",
         "name": "date_time",
         "comment": "통제 일시",
-        "dataType": "DATETIME",
+        "dataType": "DATE",
         "default": "",
         "options": 8,
         "ui": {
@@ -1576,7 +1575,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722414095066,
+          "updateAt": 1723615891774,
           "createAt": 1722256776910
         }
       },
@@ -1625,18 +1624,18 @@
         "tableId": "LFKtV5ih5weqBDbxSn1Up",
         "name": "tsi",
         "comment": "교통안전지수",
-        "dataType": "DOUBLE",
+        "dataType": "NUMBER(18, 15)",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 74,
-          "widthDataType": 60,
+          "widthDataType": 89,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391296301,
+          "updateAt": 1723614981784,
           "createAt": 1722256942777
         }
       },
@@ -1645,18 +1644,18 @@
         "tableId": "LFKtV5ih5weqBDbxSn1Up",
         "name": "predicted_travel_time",
         "comment": "예상통행시간(초)",
-        "dataType": "INTEGER(4)",
+        "dataType": "NUMBER(4)",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
           "widthName": 115,
           "widthComment": 93,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722325146659,
+          "updateAt": 1723615024087,
           "createAt": 1722256946881
         }
       },
@@ -1665,18 +1664,18 @@
         "tableId": "LFKtV5ih5weqBDbxSn1Up",
         "name": "rei",
         "comment": "경로평가지수",
-        "dataType": "INTEGER(4)",
+        "dataType": "NUMBER(4)",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 74,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722325149219,
+          "updateAt": 1723615028196,
           "createAt": 1722256967135
         }
       },
@@ -1745,18 +1744,18 @@
         "tableId": "DC4sxj8H76VCd6-2II3ap",
         "name": "lanes",
         "comment": "링크 차로수(개)",
-        "dataType": "INTEGER(2)",
+        "dataType": "NUMBER(2)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 85,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722414018973,
+          "updateAt": 1723613153207,
           "createAt": 1722323828911
         }
       },
@@ -1825,18 +1824,18 @@
         "tableId": "DC4sxj8H76VCd6-2II3ap",
         "name": "id",
         "comment": "링크 ID",
-        "dataType": "INTEGER(10)",
+        "dataType": "NUMBER(10)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 68,
+          "widthDataType": 70,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391517738,
+          "updateAt": 1723613146396,
           "createAt": 1722325013057
         }
       },
@@ -1845,18 +1844,18 @@
         "tableId": "mhgndzeJ2lnW5y6puiGQh",
         "name": "id",
         "comment": "링크 ID",
-        "dataType": "INTEGER(10)",
+        "dataType": "NUMBER(10)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 3,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 68,
+          "widthDataType": 70,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722392536137,
+          "updateAt": 1723613146396,
           "createAt": 1722325216495
         }
       },
@@ -1945,18 +1944,18 @@
         "tableId": "LFKtV5ih5weqBDbxSn1Up",
         "name": "link_id",
         "comment": "링크 ID",
-        "dataType": "INTEGER(10)",
+        "dataType": "NUMBER(10)",
         "default": "",
-        "options": 8,
+        "options": 10,
         "ui": {
-          "keys": 2,
+          "keys": 3,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 68,
+          "widthDataType": 70,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391517738,
+          "updateAt": 1723614145139,
           "createAt": 1722327977210
         }
       },
@@ -1985,18 +1984,18 @@
         "tableId": "McocNg9R-nx8niMSmCO0v",
         "name": "id",
         "comment": "기상청 지점 ID",
-        "dataType": "INTEGER(3)",
+        "dataType": "NUMBER(3)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
           "widthComment": 80,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722386086994,
+          "updateAt": 1723612529331,
           "createAt": 1722328276617
         }
       },
@@ -2005,18 +2004,18 @@
         "tableId": "McocNg9R-nx8niMSmCO0v",
         "name": "name",
         "comment": "기상청 지점명",
-        "dataType": "VARCHAR2",
+        "dataType": "VARCHAR2(40)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 77,
-          "widthDataType": 61,
+          "widthDataType": 81,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722388055164,
+          "updateAt": 1723612532873,
           "createAt": 1722328278516
         }
       },
@@ -2045,18 +2044,18 @@
         "tableId": "DC4sxj8H76VCd6-2II3ap",
         "name": "start_node_id",
         "comment": "링크 시작노드 ID",
-        "dataType": "INTEGER(10)",
+        "dataType": "NUMBER(10)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 2,
           "widthName": 73,
           "widthComment": 92,
-          "widthDataType": 68,
+          "widthDataType": 70,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412641684,
+          "updateAt": 1723612475159,
           "createAt": 1722328355540
         }
       },
@@ -2065,18 +2064,18 @@
         "tableId": "DC4sxj8H76VCd6-2II3ap",
         "name": "end_node_id",
         "comment": "링크 종료노드 ID",
-        "dataType": "INTEGER(10)",
+        "dataType": "NUMBER(10)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 2,
           "widthName": 69,
           "widthComment": 92,
-          "widthDataType": 68,
+          "widthDataType": 70,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412641684,
+          "updateAt": 1723612475159,
           "createAt": 1722328361046
         }
       },
@@ -2085,18 +2084,18 @@
         "tableId": "2EyfiFC6rxd7_oN7sJSoe",
         "name": "link_id",
         "comment": "링크 ID",
-        "dataType": "INTEGER(10)",
+        "dataType": "NUMBER(10)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 2,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 68,
+          "widthDataType": 70,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722414086959,
+          "updateAt": 1723613146396,
           "createAt": 1722328384958
         }
       },
@@ -2105,18 +2104,18 @@
         "tableId": "LEJDRNqofuSvjfkPBZs4U",
         "name": "link_id",
         "comment": "링크 ID",
-        "dataType": "INTEGER(10)",
+        "dataType": "NUMBER(10)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 2,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 68,
+          "widthDataType": 70,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391517738,
+          "updateAt": 1723613146396,
           "createAt": 1722328403252
         }
       },
@@ -2125,18 +2124,18 @@
         "tableId": "LFKtV5ih5weqBDbxSn1Up",
         "name": "id",
         "comment": "지표 ID",
-        "dataType": "INTEGER(10)",
+        "dataType": "NUMBER(10)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 68,
+          "widthDataType": 70,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391227706,
+          "updateAt": 1723613341486,
           "createAt": 1722328551573
         }
       },
@@ -2145,18 +2144,18 @@
         "tableId": "WZY8xUb3Cert6pW4CH1k9",
         "name": "precipitation",
         "comment": "15분 누적 강수량(mm)",
-        "dataType": "INTEGER(2)",
+        "dataType": "NUMBER(2)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 69,
           "widthComment": 121,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722557677940,
+          "updateAt": 1723617519894,
           "createAt": 1722328813007
         }
       },
@@ -2205,18 +2204,18 @@
         "tableId": "2EyfiFC6rxd7_oN7sJSoe",
         "name": "id",
         "comment": "이벤트 ID",
-        "dataType": "INTEGER(5)",
+        "dataType": "NUMBER(5)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391493597,
+          "updateAt": 1723615839563,
           "createAt": 1722328954268
         }
       },
@@ -2245,18 +2244,18 @@
         "tableId": "WZY8xUb3Cert6pW4CH1k9",
         "name": "aws_id",
         "comment": "기상청 지점 ID",
-        "dataType": "INTEGER(3)",
+        "dataType": "NUMBER(3)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 3,
           "widthName": 60,
           "widthComment": 80,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412779316,
+          "updateAt": 1723612529331,
           "createAt": 1722330041921
         }
       },
@@ -2265,18 +2264,18 @@
         "tableId": "xfkoGeuAGRaR-TYkBgt2c",
         "name": "code",
         "comment": "이벤트 코드",
-        "dataType": "INTEGER(5)",
+        "dataType": "NUMBER(5)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
           "widthComment": 65,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391386017,
+          "updateAt": 1723615797931,
           "createAt": 1722337210273
         }
       },
@@ -2285,18 +2284,18 @@
         "tableId": "xfkoGeuAGRaR-TYkBgt2c",
         "name": "name",
         "comment": "이벤트 명칭",
-        "dataType": "VARCHAR2",
+        "dataType": "VARCHAR2(40)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 65,
-          "widthDataType": 61,
+          "widthDataType": 81,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391383361,
+          "updateAt": 1723615834820,
           "createAt": 1722337216556
         }
       },
@@ -2345,18 +2344,18 @@
         "tableId": "2EyfiFC6rxd7_oN7sJSoe",
         "name": "code",
         "comment": "이벤트 코드",
-        "dataType": "INTEGER(5)",
+        "dataType": "NUMBER(5)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 2,
           "widthName": 60,
           "widthComment": 65,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391368357,
+          "updateAt": 1723615797931,
           "createAt": 1722337254477
         }
       },
@@ -2365,18 +2364,18 @@
         "tableId": "VvyhLMotwH5wW_pdhHQ9I",
         "name": "code",
         "comment": "노면상태 코드",
-        "dataType": "INTEGER(2)",
+        "dataType": "NUMBER(2)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
           "widthComment": 77,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391654675,
+          "updateAt": 1723618601318,
           "createAt": 1722338633071
         }
       },
@@ -2385,18 +2384,18 @@
         "tableId": "kbLOVaYnNSbFKME8tUjjU",
         "name": "road_suface_status_code",
         "comment": "노면상태 코드",
-        "dataType": "INTEGER(2)",
+        "dataType": "NUMBER(2)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 2,
           "widthName": 132,
           "widthComment": 77,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412760475,
+          "updateAt": 1723618601318,
           "createAt": 1722338643125
         }
       },
@@ -2405,18 +2404,18 @@
         "tableId": "llRIyq0zcfIrfe9Dm8pQs",
         "name": "latitude",
         "comment": "위도",
-        "dataType": "DOUBLE",
+        "dataType": "NUMBER(18, 15)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 60,
+          "widthDataType": 89,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391635377,
+          "updateAt": 1723619134340,
           "createAt": 1722338804542
         }
       },
@@ -2425,18 +2424,18 @@
         "tableId": "llRIyq0zcfIrfe9Dm8pQs",
         "name": "id",
         "comment": "노면기상데이터수집지점",
-        "dataType": "INTEGER(2)",
+        "dataType": "NUMBER(2)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
           "widthComment": 134,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391642455,
+          "updateAt": 1723618656085,
           "createAt": 1722338808363
         }
       },
@@ -2445,18 +2444,18 @@
         "tableId": "llRIyq0zcfIrfe9Dm8pQs",
         "name": "longitude",
         "comment": "경도",
-        "dataType": "DOUBLE",
+        "dataType": "NUMBER(18, 15)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 60,
+          "widthDataType": 89,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722391638577,
+          "updateAt": 1723619135124,
           "createAt": 1722338813707
         }
       },
@@ -2465,18 +2464,18 @@
         "tableId": "kbLOVaYnNSbFKME8tUjjU",
         "name": "rwis_id",
         "comment": "노면기상데이터수집지점",
-        "dataType": "INTEGER(2)",
+        "dataType": "NUMBER(2)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 3,
           "widthName": 60,
           "widthComment": 134,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722392210842,
+          "updateAt": 1723618656085,
           "createAt": 1722338834184
         }
       },
@@ -2485,18 +2484,18 @@
         "tableId": "DC4sxj8H76VCd6-2II3ap",
         "name": "length",
         "comment": "링크 길이(m)",
-        "dataType": "DOUBLE",
+        "dataType": "NUMBER(15, 11)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 71,
-          "widthDataType": 60,
+          "widthDataType": 89,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412254117,
+          "updateAt": 1723613295536,
           "createAt": 1722403912854
         }
       },
@@ -2565,18 +2564,18 @@
         "tableId": "DC4sxj8H76VCd6-2II3ap",
         "name": "road_rank_code",
         "comment": "링크 도로등급 코드",
-        "dataType": "INTEGER(3)",
+        "dataType": "NUMBER(3)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 2,
           "widthName": 85,
           "widthComment": 105,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412237249,
+          "updateAt": 1723612505457,
           "createAt": 1722411442813
         }
       },
@@ -2585,18 +2584,18 @@
         "tableId": "DC4sxj8H76VCd6-2II3ap",
         "name": "road_type_code",
         "comment": "링크 도로유형 코드",
-        "dataType": "INTEGER(1)",
+        "dataType": "NUMBER(1)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 2,
           "widthName": 85,
           "widthComment": 105,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412242482,
+          "updateAt": 1723612517605,
           "createAt": 1722411448491
         }
       },
@@ -2625,18 +2624,18 @@
         "tableId": "DC4sxj8H76VCd6-2II3ap",
         "name": "max_speed_limit",
         "comment": "링크 최대제한속도(km/h)",
-        "dataType": "INTEGER(3)",
+        "dataType": "NUMBER(3)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 89,
           "widthComment": 136,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412245885,
+          "updateAt": 1723613167741,
           "createAt": 1722411582171
         }
       },
@@ -2685,18 +2684,18 @@
         "tableId": "DC4sxj8H76VCd6-2II3ap",
         "name": "aws_id",
         "comment": "링크 기상청 지점 ID",
-        "dataType": "INTEGER(3)",
+        "dataType": "NUMBER(3)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 2,
           "widthName": 60,
           "widthComment": 107,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412269564,
+          "updateAt": 1723612529331,
           "createAt": 1722411698792
         }
       },
@@ -2705,18 +2704,18 @@
         "tableId": "DC4sxj8H76VCd6-2II3ap",
         "name": "geometry",
         "comment": "링크 가시화 정보",
-        "dataType": "MULTILINESTRING",
+        "dataType": "CLOB",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 93,
-          "widthDataType": 99,
+          "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412273597,
+          "updateAt": 1723613135879,
           "createAt": 1722411716889
         }
       },
@@ -2725,18 +2724,18 @@
         "tableId": "DC4sxj8H76VCd6-2II3ap",
         "name": "name",
         "comment": "링크 명칭",
-        "dataType": "VARCHAR2",
+        "dataType": "VARCHAR2(40)",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 61,
+          "widthDataType": 81,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722413661537,
+          "updateAt": 1723613157137,
           "createAt": 1722411739823
         }
       },
@@ -2805,18 +2804,18 @@
         "tableId": "O4pk4-3LfWI8OQEvxwRhx",
         "name": "code",
         "comment": "노드유형 코드",
-        "dataType": "INTEGER(3)",
+        "dataType": "NUMBER(3)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
           "widthComment": 77,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412507779,
+          "updateAt": 1723612434358,
           "createAt": 1722412294287
         }
       },
@@ -2825,18 +2824,18 @@
         "tableId": "O4pk4-3LfWI8OQEvxwRhx",
         "name": "name",
         "comment": "노드유형 명칭",
-        "dataType": "VARCHAR2",
+        "dataType": "VARCHAR2(40)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 77,
-          "widthDataType": 61,
+          "widthDataType": 81,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412563384,
+          "updateAt": 1723612438247,
           "createAt": 1722412294666
         }
       },
@@ -2945,18 +2944,18 @@
         "tableId": "GeZrQVHSEZtlCgSUi-wvr",
         "name": "node_type_code",
         "comment": "노드유형 코드",
-        "dataType": "INTEGER(3)",
+        "dataType": "NUMBER(3)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 2,
           "widthName": 88,
           "widthComment": 77,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722412526854,
+          "updateAt": 1723612434358,
           "createAt": 1722412514523
         }
       },
@@ -2985,18 +2984,18 @@
         "tableId": "GeZrQVHSEZtlCgSUi-wvr",
         "name": "latitude",
         "comment": "노드 위도",
-        "dataType": "DOUBLE",
+        "dataType": "NUMBER(18, 15)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 60,
+          "widthDataType": 89,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722476535145,
+          "updateAt": 1723612486436,
           "createAt": 1722423374120
         }
       },
@@ -3005,18 +3004,18 @@
         "tableId": "GeZrQVHSEZtlCgSUi-wvr",
         "name": "longitude",
         "comment": "노드 경도",
-        "dataType": "DOUBLE",
+        "dataType": "NUMBER(18, 15)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 60,
+          "widthDataType": 89,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722476531859,
+          "updateAt": 1723612488979,
           "createAt": 1722423379663
         }
       },
@@ -3045,18 +3044,18 @@
         "tableId": "GeZrQVHSEZtlCgSUi-wvr",
         "name": "district_id",
         "comment": "노드 행정구역(읍면동) ID",
-        "dataType": "INTEGER(10)",
+        "dataType": "NUMBER(10)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 2,
           "widthName": 60,
           "widthComment": 135,
-          "widthDataType": 68,
+          "widthDataType": 70,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722476719508,
+          "updateAt": 1723612462868,
           "createAt": 1722427670059
         }
       },
@@ -3065,18 +3064,18 @@
         "tableId": "DC4sxj8H76VCd6-2II3ap",
         "name": "road_use",
         "comment": "CHECK(0,1) | 도로사용여부",
-        "dataType": "INTEGER(1)",
+        "dataType": "NUMBER(1)",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 143,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722477295948,
+          "updateAt": 1723613162484,
           "createAt": 1722477252022
         }
       },
@@ -3105,18 +3104,18 @@
         "tableId": "llRIyq0zcfIrfe9Dm8pQs",
         "name": "name",
         "comment": "rwis 이름",
-        "dataType": "VARCHAR2",
+        "dataType": "VARCHAR2(40)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 61,
+          "widthDataType": 81,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722560520602,
+          "updateAt": 1723619139689,
           "createAt": 1722560217233
         }
       },
@@ -3125,18 +3124,18 @@
         "tableId": "DC4sxj8H76VCd6-2II3ap",
         "name": "component_coordinates_count",
         "comment": "링크 구성 좌표 개수",
-        "dataType": "INTEGER(4)",
+        "dataType": "NUMBER(4)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 165,
           "widthComment": 108,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722568534130,
+          "updateAt": 1723613299597,
           "createAt": 1722568512156
         }
       },
@@ -3145,18 +3144,18 @@
         "tableId": "3uO5g3EP3ffLoq2MELdI-",
         "name": "segment_number",
         "comment": "링크 구성 좌표 번호",
-        "dataType": "INTEGER(3)",
+        "dataType": "NUMBER(3)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 94,
           "widthComment": 108,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722568889803,
+          "updateAt": 1723618958883,
           "createAt": 1722568636025
         }
       },
@@ -3165,18 +3164,18 @@
         "tableId": "3uO5g3EP3ffLoq2MELdI-",
         "name": "link_id",
         "comment": "링크 ID",
-        "dataType": "INTEGER(10)",
+        "dataType": "NUMBER(10)",
         "default": "",
         "options": 10,
         "ui": {
           "keys": 3,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 68,
+          "widthDataType": 70,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722568814273,
+          "updateAt": 1723613146396,
           "createAt": 1722568649897
         }
       },
@@ -3205,18 +3204,18 @@
         "tableId": "3uO5g3EP3ffLoq2MELdI-",
         "name": "closest_rwis_id",
         "comment": "노면기상데이터수집지점",
-        "dataType": "INTEGER(2)",
+        "dataType": "NUMBER(2)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 2,
           "widthName": 79,
           "widthComment": 134,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722568754914,
+          "updateAt": 1723618656085,
           "createAt": 1722568739529
         }
       },
@@ -3227,16 +3226,16 @@
         "comment": "일자",
         "dataType": "DATE",
         "default": "",
-        "options": 8,
+        "options": 10,
         "ui": {
-          "keys": 0,
+          "keys": 1,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722572257062,
+          "updateAt": 1723619309693,
           "createAt": 1722572175321
         }
       },
@@ -3245,18 +3244,18 @@
         "tableId": "X0f5jPQAPYD30B5fnxgX1",
         "name": "visitors_count",
         "comment": "입도 관광객 수",
-        "dataType": "INTEGER(6)",
+        "dataType": "NUMBER(6)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 74,
           "widthComment": 81,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722572266711,
+          "updateAt": 1723619165395,
           "createAt": 1722572183997
         }
       },
@@ -3265,18 +3264,18 @@
         "tableId": "mhgndzeJ2lnW5y6puiGQh",
         "name": "traffic_volume",
         "comment": "교통량(대)",
-        "dataType": "INTEGER(4)",
+        "dataType": "NUMBER(4)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 76,
           "widthComment": 60,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722840066824,
+          "updateAt": 1723616539044,
           "createAt": 1722839994891
         }
       },
@@ -3285,18 +3284,18 @@
         "tableId": "mhgndzeJ2lnW5y6puiGQh",
         "name": "occupancy",
         "comment": "점유율(%)",
-        "dataType": "INTEGER(3)",
+        "dataType": "NUMBER(3)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 62,
+          "widthDataType": 64,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722840106765,
+          "updateAt": 1723616541507,
           "createAt": 1722839995307
         }
       }
@@ -3312,7 +3311,7 @@
           "columnIds": [
             "5ehCE4Z-kVhxRWlvRqWr0"
           ],
-          "x": 753.7487,
+          "x": 751.5265,
           "y": 767.2775666666666,
           "direction": 1
         },
@@ -3321,7 +3320,7 @@
           "columnIds": [
             "Nc_vFLxeFrrmE0LvIMYDe"
           ],
-          "x": 500.7581,
+          "x": 502.7581,
           "y": 853.735,
           "direction": 2
         },
@@ -3332,7 +3331,7 @@
       },
       "jOK7MJeBF2asLYVoROBQa": {
         "id": "jOK7MJeBF2asLYVoROBQa",
-        "identification": false,
+        "identification": true,
         "relationshipType": 16,
         "startRelationshipType": 2,
         "start": {
@@ -3340,7 +3339,7 @@
           "columnIds": [
             "5ehCE4Z-kVhxRWlvRqWr0"
           ],
-          "x": 1049.7487,
+          "x": 1042.5265,
           "y": 460.6109,
           "direction": 4
         },
@@ -3349,8 +3348,8 @@
           "columnIds": [
             "IQrTlQg8dnsXHkG2g4Hdj"
           ],
-          "x": 1032.6905000000002,
-          "y": 284.7042,
+          "x": 1043.1905000000002,
+          "y": 260.7042,
           "direction": 8
         },
         "meta": {
@@ -3377,7 +3376,7 @@
           "columnIds": [
             "nt23PoAzgxBwptRq0HW5z"
           ],
-          "x": 1345.7487,
+          "x": 1333.5265,
           "y": 552.6109,
           "direction": 2
         },
@@ -3405,7 +3404,7 @@
           "columnIds": [
             "q7eHi36j9pnRgKfSHcxJM"
           ],
-          "x": 1345.7487,
+          "x": 1333.5265,
           "y": 736.6109,
           "direction": 2
         },
@@ -3424,7 +3423,7 @@
           "columnIds": [
             "5ehCE4Z-kVhxRWlvRqWr0"
           ],
-          "x": 753.7487,
+          "x": 751.5265,
           "y": 521.9442333333334,
           "direction": 1
         },
@@ -3433,7 +3432,7 @@
           "columnIds": [
             "eCsCEIaC5WrSkg-3eixCh"
           ],
-          "x": 500.714,
+          "x": 502.714,
           "y": 397.5714,
           "direction": 2
         },
@@ -3452,7 +3451,7 @@
           "columnIds": [
             "5ehCE4Z-kVhxRWlvRqWr0"
           ],
-          "x": 753.7487,
+          "x": 751.5265,
           "y": 644.6109,
           "direction": 1
         },
@@ -3461,7 +3460,7 @@
           "columnIds": [
             "L8kNtlUXT98cjikCz0w4O"
           ],
-          "x": 467.4006,
+          "x": 493.4006,
           "y": 644.0477,
           "direction": 2
         },
@@ -3489,7 +3488,7 @@
           "columnIds": [
             "QJPZFyj1KaOgU7OaMvkkp"
           ],
-          "x": 287.9577,
+          "x": 288.9577,
           "y": 1139.3281,
           "direction": 8
         },
@@ -3508,7 +3507,7 @@
           "columnIds": [
             "qgEXLmo9hUXwYKqy_pjsl"
           ],
-          "x": 313.1872,
+          "x": 322.6872,
           "y": 180.13139999999999,
           "direction": 8
         },
@@ -3517,7 +3516,7 @@
           "columnIds": [
             "Jf5dtDphjAGxjn-rmCr6A"
           ],
-          "x": 311.714,
+          "x": 312.714,
           "y": 321.5714,
           "direction": 4
         },
@@ -3536,7 +3535,7 @@
           "columnIds": [
             "YcQbMbAiU9kRospYSGmfl"
           ],
-          "x": 271.171,
+          "x": 280.671,
           "y": 1822.9732,
           "direction": 4
         },
@@ -3545,7 +3544,7 @@
           "columnIds": [
             "ocK_5a-E-WwJgGLmgXqi9"
           ],
-          "x": 271.5318,
+          "x": 272.5318,
           "y": 1701.3811,
           "direction": 8
         },
@@ -3573,7 +3572,7 @@
           "columnIds": [
             "w0yhDvhTa5RdRYRUN9Chl"
           ],
-          "x": 528.0318,
+          "x": 530.0318,
           "y": 1601.3811,
           "direction": 2
         },
@@ -3592,8 +3591,8 @@
           "columnIds": [
             "-ANQeiDscrHQ7tWlBn2rQ"
           ],
-          "x": 1350.6666,
-          "y": 1412.3333,
+          "x": 1335.111,
+          "y": 1411.2222,
           "direction": 1
         },
         "end": {
@@ -3601,7 +3600,7 @@
           "columnIds": [
             "tqIQVOMsYz7_QXg8izPi1"
           ],
-          "x": 1123.7487,
+          "x": 1115.2765,
           "y": 828.6109,
           "direction": 8
         },
@@ -3629,7 +3628,7 @@
           "columnIds": [
             "SvdcucNevVLQeMr6mrOxX"
           ],
-          "x": 1271.7487,
+          "x": 1260.7765,
           "y": 828.6109,
           "direction": 8
         },
@@ -3648,7 +3647,7 @@
           "columnIds": [
             "rXe8strBYC1soIIMK98ye"
           ],
-          "x": 724.9964,
+          "x": 743.9964,
           "y": 1289.5978,
           "direction": 2
         },
@@ -3657,7 +3656,7 @@
           "columnIds": [
             "SYawyC_Gv0IEdZpi-Aqay"
           ],
-          "x": 827.7487,
+          "x": 824.2765,
           "y": 828.6109,
           "direction": 8
         },
@@ -3676,7 +3675,7 @@
           "columnIds": [
             "CWPqu7wu8Vem0dg8hXkcv"
           ],
-          "x": 1737.1844,
+          "x": 1746.6844,
           "y": 426.0352,
           "direction": 8
         },
@@ -3685,7 +3684,7 @@
           "columnIds": [
             "zwlD83yAW1isWD6ncdwdG"
           ],
-          "x": 1736.5556,
+          "x": 1747.0556,
           "y": 548.3334,
           "direction": 4
         },
@@ -3704,7 +3703,7 @@
           "columnIds": [
             "n4KTdx8bNaZzenVjjNSei"
           ],
-          "x": 1736.4443,
+          "x": 1742.9443,
           "y": 1009.7776,
           "direction": 4
         },
@@ -3713,7 +3712,7 @@
           "columnIds": [
             "QBjW8hVWLXu27FPUA4tA4"
           ],
-          "x": 1736.5556,
+          "x": 1747.0556,
           "y": 748.3334,
           "direction": 8
         },
@@ -3732,7 +3731,7 @@
           "columnIds": [
             "5ehCE4Z-kVhxRWlvRqWr0"
           ],
-          "x": 975.7487,
+          "x": 969.7765,
           "y": 828.6109,
           "direction": 8
         },
@@ -3741,7 +3740,7 @@
           "columnIds": [
             "znBLj23vLv1IKwq58pqEn"
           ],
-          "x": 975.9445,
+          "x": 976.9445,
           "y": 1377.7823,
           "direction": 4
         },
@@ -3760,7 +3759,7 @@
           "columnIds": [
             "XGP2gLiiw7yrfducBNJMC"
           ],
-          "x": 974.5755,
+          "x": 988.0755,
           "y": 1709.798,
           "direction": 4
         },
@@ -3769,7 +3768,7 @@
           "columnIds": [
             "VLFn-YBGCZSVjnTK_0kTi"
           ],
-          "x": 975.9445,
+          "x": 976.9445,
           "y": 1529.7823,
           "direction": 8
         },
@@ -3843,7 +3842,7 @@
       {
         "name": 1722557904731,
         "comment": 1722415218472,
-        "dataType": 1722557897164,
+        "dataType": 1723616663677,
         "options(notNull)": 1722392156073
       }
     ],
@@ -3872,7 +3871,7 @@
       -1,
       {
         "name": 1722340616236,
-        "dataType": 1722312744153,
+        "dataType": 1723612508618,
         "comment": 1722412560484,
         "options(notNull)": 1722312836721
       }
@@ -3883,7 +3882,7 @@
       -1,
       {
         "name": 1722340618717,
-        "dataType": 1722312726864,
+        "dataType": 1723612505456,
         "default": 1722252398546,
         "comment": 1722340918757,
         "options(primaryKey)": 1722252398546,
@@ -3933,7 +3932,7 @@
       {
         "name": 1722340613518,
         "options(primaryKey)": 1722253064685,
-        "dataType": 1722316614200,
+        "dataType": 1723612517605,
         "comment": 1722412376045,
         "default": 1722316711427
       }
@@ -3944,7 +3943,7 @@
       -1,
       {
         "name": 1722340609637,
-        "dataType": 1722316618619,
+        "dataType": 1723612521006,
         "comment": 1722412555498,
         "options(notNull)": 1722387998748
       }
@@ -3974,7 +3973,7 @@
       {
         "name": 1722340624210,
         "options(primaryKey)": 1722253476952,
-        "dataType": 1722476719508,
+        "dataType": 1723612462867,
         "comment": 1722412675372
       }
     ],
@@ -3984,7 +3983,7 @@
       -1,
       {
         "name": 1722340621762,
-        "dataType": 1722317277012,
+        "dataType": 1723612466332,
         "options(notNull)": 1722317352360,
         "comment": 1722412680389
       }
@@ -4006,7 +4005,7 @@
       {
         "name": 1722412122547,
         "options(primaryKey)": 1722253595341,
-        "dataType": 1722412641683,
+        "dataType": 1723612475158,
         "comment": 1722337948414
       }
     ],
@@ -4016,7 +4015,7 @@
       -1,
       {
         "name": 1722412119402,
-        "dataType": 1722391704703,
+        "dataType": 1723612480504,
         "options(notNull)": 1722311827317,
         "comment": 1722337955118
       }
@@ -4084,7 +4083,7 @@
         "name": 1722338990851,
         "options(primaryKey)": 1722255221241,
         "comment": 1722337904094,
-        "dataType": 1722391928938
+        "dataType": 1723615888213
       }
     ],
     "s1Iw1jij2_3uKIEwVyXfl": [
@@ -4094,7 +4093,7 @@
       {
         "name": 1722339003554,
         "comment": 1722337936391,
-        "dataType": 1722391961846,
+        "dataType": 1723616667684,
         "options(notNull)": 1722392155529
       }
     ],
@@ -4137,8 +4136,8 @@
       -1,
       {
         "name": 1722340371613,
-        "options(primaryKey)": 1722328553071,
-        "dataType": 1722317533952,
+        "options(primaryKey)": 1723614143438,
+        "dataType": 1723615851367,
         "comment": 1722340388492
       }
     ],
@@ -4156,7 +4155,7 @@
       -1,
       {
         "name": 1722255596926,
-        "dataType": 1722391295426,
+        "dataType": 1723614980945,
         "default": 1722317496152,
         "comment": 1722340383768
       }
@@ -4183,7 +4182,7 @@
         "comment": 1722414120692,
         "options(notNull)": 1722388094276,
         "default": 1722392414864,
-        "dataType": 1722392354266
+        "dataType": 1723618662532
       }
     ],
     "K1iyvq2lDYkpR0Ld-wn_4": [
@@ -4195,7 +4194,7 @@
         "comment": 1722414112812,
         "options(notNull)": 1722388093788,
         "default": 1722392427890,
-        "dataType": 1722392336458
+        "dataType": 1723618668547
       }
     ],
     "O63xYLJZV1uCvV5Lb4FIq": [
@@ -4207,7 +4206,7 @@
         "comment": 1722414115544,
         "options(notNull)": 1722388093308,
         "default": 1722392426204,
-        "dataType": 1722392347609
+        "dataType": 1723618672578
       }
     ],
     "zBpyHsR0TNC5V62E_JoSE": [
@@ -4250,7 +4249,7 @@
       {
         "name": 1722339041414,
         "comment": 1722340113807,
-        "dataType": 1722391712275,
+        "dataType": 1723618604240,
         "options(notNull)": 1722392161377
       }
     ],
@@ -4305,7 +4304,7 @@
         "name": 1722256605537,
         "options(primaryKey)": 1722325233298,
         "comment": 1722340186077,
-        "dataType": 1722391967073
+        "dataType": 1723616520518
       }
     ],
     "ztrXSvQnoNpFAMSYqMmCh": [
@@ -4324,7 +4323,7 @@
       {
         "name": 1722256662920,
         "comment": 1722322575919,
-        "dataType": 1722392108762,
+        "dataType": 1723616534232,
         "options(notNull)": 1722392115232
       }
     ],
@@ -4346,7 +4345,7 @@
       {
         "name": 1722318242996,
         "comment": 1722412893363,
-        "dataType": 1722392052921,
+        "dataType": 1723616536094,
         "options(notNull)": 1722392115936
       }
     ],
@@ -4358,7 +4357,7 @@
         "name": 1722337150462,
         "options(primaryKey)": 1722328951862,
         "comment": 1722414079150,
-        "dataType": 1722388540934
+        "dataType": 1723615846293
       }
     ],
     "8wnUMSPHrCmPfHlJGQNif": [
@@ -4369,7 +4368,7 @@
         "name": 1722256782390,
         "options(primaryKey)": 1722256850869,
         "comment": 1722414095066,
-        "dataType": 1722391932681
+        "dataType": 1723615891774
       }
     ],
     "PETWxcPu2egOGdSRrQ0ky": [
@@ -4403,7 +4402,7 @@
       {
         "name": 1722256944780,
         "comment": 1722317568760,
-        "dataType": 1722391296301
+        "dataType": 1723614981784
       }
     ],
     "0b2VosNGypqrA3a6Yb3n0": [
@@ -4413,7 +4412,7 @@
       {
         "name": 1722256965933,
         "comment": 1722322578983,
-        "dataType": 1722325146659
+        "dataType": 1723615024087
       }
     ],
     "r9JfO1qf3iMaxuQ_2CDPg": [
@@ -4423,7 +4422,7 @@
       {
         "name": 1722256970729,
         "comment": 1722317613540,
-        "dataType": 1722325149219
+        "dataType": 1723615028195
       }
     ],
     "3bjcDM9camfpQFoTIQF3t": [
@@ -4476,7 +4475,7 @@
       -1,
       {
         "name": 1722411754499,
-        "dataType": 1722323870880,
+        "dataType": 1723613153206,
         "comment": 1722414018973,
         "options(notNull)": 1722388015548
       }
@@ -4508,7 +4507,7 @@
       -1,
       {
         "name": 1722342800206,
-        "dataType": 1722391517736,
+        "dataType": 1723613146395,
         "default": 1722325013056,
         "comment": 1722325013056,
         "options(primaryKey)": 1722325013056,
@@ -4524,7 +4523,7 @@
       {
         "options(notNull)": 1722392114048,
         "name": 1722340177408,
-        "dataType": 1722391517736,
+        "dataType": 1723613146395,
         "default": 1722325216494,
         "comment": 1722325216494,
         "options(primaryKey)": 1722392536137
@@ -4597,10 +4596,10 @@
       {
         "options(notNull)": 1722327977209,
         "name": 1722327977209,
-        "dataType": 1722391517736,
+        "dataType": 1723613146395,
         "default": 1722327977209,
         "comment": 1722327977209,
-        "options(primaryKey)": 1722328537643
+        "options(primaryKey)": 1723614145139
       }
     ],
     "jOK7MJeBF2asLYVoROBQa": [
@@ -4631,7 +4630,7 @@
       -1,
       {
         "name": 1722386086993,
-        "dataType": 1722328276615,
+        "dataType": 1723612529330,
         "default": 1722328276615,
         "comment": 1722328276615,
         "options(primaryKey)": 1722328317102,
@@ -4646,7 +4645,7 @@
       -1,
       {
         "name": 1722386089009,
-        "dataType": 1722328278513,
+        "dataType": 1723612532872,
         "default": 1722328278513,
         "comment": 1722328278513,
         "options(primaryKey)": 1722328278513,
@@ -4674,7 +4673,7 @@
       {
         "options(notNull)": 1722328355538,
         "name": 1722337462805,
-        "dataType": 1722412641683,
+        "dataType": 1723612475158,
         "default": 1722328355538,
         "comment": 1722412224985
       }
@@ -4692,7 +4691,7 @@
       {
         "options(notNull)": 1722328361042,
         "name": 1722337465252,
-        "dataType": 1722412641683,
+        "dataType": 1723612475158,
         "default": 1722328361042,
         "comment": 1722412230019
       }
@@ -4710,7 +4709,7 @@
       {
         "options(notNull)": 1722328384955,
         "name": 1722328384955,
-        "dataType": 1722391517736,
+        "dataType": 1723613146395,
         "default": 1722328384955,
         "comment": 1722414086959,
         "options(primaryKey)": 1722328950878
@@ -4729,7 +4728,7 @@
       {
         "options(notNull)": 1722328403250,
         "name": 1722328403250,
-        "dataType": 1722391517736,
+        "dataType": 1723613146395,
         "default": 1722328403250,
         "comment": 1722328403250
       }
@@ -4743,11 +4742,11 @@
     "jq_71AlpdWe1oOD4Ijw39": [
       "tableColumnEntities",
       1722328551572,
-      -1,
+      1723614123029,
       {
         "name": 1722340352010,
         "options(primaryKey)": 1722328563406,
-        "dataType": 1722387928733,
+        "dataType": 1723613341486,
         "comment": 1722391227705
       }
     ],
@@ -4769,7 +4768,7 @@
         "name": 1722340737660,
         "comment": 1722557677939,
         "options(notNull)": 1722388058860,
-        "dataType": 1722392495952
+        "dataType": 1723617519894
       }
     ],
     "a5r7NvsU9JGalb_4pZ7Jn": [
@@ -4804,7 +4803,7 @@
         "name": 1722338976363,
         "options(primaryKey)": 1722328966463,
         "comment": 1722337878174,
-        "dataType": 1722391493596
+        "dataType": 1723615839562
       }
     ],
     "YerBS_DsqvpQDXoPl1usD": [
@@ -4827,7 +4826,7 @@
       {
         "options(notNull)": 1722330041917,
         "name": 1722412779315,
-        "dataType": 1722330041917,
+        "dataType": 1723612529330,
         "default": 1722330041917,
         "comment": 1722330041917,
         "options(primaryKey)": 1722330049075
@@ -4857,7 +4856,7 @@
         "name": 1722338954836,
         "options(primaryKey)": 1722337237309,
         "comment": 1722340315353,
-        "dataType": 1722391368356,
+        "dataType": 1723615797931,
         "options(notNull)": 1722391386016
       }
     ],
@@ -4868,7 +4867,7 @@
       {
         "name": 1722338958265,
         "comment": 1722340314421,
-        "dataType": 1722391380729,
+        "dataType": 1723615834820,
         "options(notNull)": 1722391383360
       }
     ],
@@ -4899,7 +4898,7 @@
       {
         "options(notNull)": 1722337254476,
         "name": 1722338984266,
-        "dataType": 1722391368356,
+        "dataType": 1723615797931,
         "default": 1722337254476,
         "comment": 1722337888510
       }
@@ -4916,7 +4915,7 @@
       -1,
       {
         "name": 1722339051769,
-        "dataType": 1722391654675,
+        "dataType": 1723618601317,
         "default": 1722338633070,
         "comment": 1722338633070,
         "options(primaryKey)": 1722338636237,
@@ -4932,7 +4931,7 @@
       {
         "options(notNull)": 1722338643122,
         "name": 1722412760475,
-        "dataType": 1722391654675,
+        "dataType": 1723618601317,
         "default": 1722338643122,
         "comment": 1722338643122
       }
@@ -4961,7 +4960,7 @@
         "name": 1722338822013,
         "comment": 1722340156533,
         "options(notNull)": 1722388053300,
-        "dataType": 1722391635377
+        "dataType": 1723619134339
       }
     ],
     "XGP2gLiiw7yrfducBNJMC": [
@@ -4970,7 +4969,7 @@
       -1,
       {
         "name": 1722386924637,
-        "dataType": 1722391642455,
+        "dataType": 1723618656084,
         "default": 1722338808362,
         "comment": 1722338808362,
         "options(primaryKey)": 1722338808362,
@@ -4987,7 +4986,7 @@
         "name": 1722338825128,
         "comment": 1722340159201,
         "options(notNull)": 1722388052692,
-        "dataType": 1722391638577
+        "dataType": 1723619135124
       }
     ],
     "w0yhDvhTa5RdRYRUN9Chl": [
@@ -4997,7 +4996,7 @@
       {
         "options(notNull)": 1722338834179,
         "name": 1722392210841,
-        "dataType": 1722391642455,
+        "dataType": 1723618656084,
         "default": 1722338834179,
         "comment": 1722338834179,
         "options(primaryKey)": 1722338844005
@@ -5015,7 +5014,7 @@
       -1,
       {
         "name": 1722403916549,
-        "dataType": 1722404441802,
+        "dataType": 1723613295535,
         "options(notNull)": 1722404442791,
         "comment": 1722412254116
       }
@@ -5069,7 +5068,7 @@
       {
         "options(notNull)": 1722411442812,
         "name": 1722411467113,
-        "dataType": 1722411442812,
+        "dataType": 1723612505456,
         "default": 1722411442812,
         "comment": 1722412237249
       }
@@ -5087,7 +5086,7 @@
       {
         "options(notNull)": 1722411448487,
         "name": 1722411462026,
-        "dataType": 1722411448487,
+        "dataType": 1723612517605,
         "default": 1722411448487,
         "comment": 1722412242481
       }
@@ -5110,7 +5109,7 @@
       -1,
       {
         "name": 1722411777243,
-        "dataType": 1722411582170,
+        "dataType": 1723613167740,
         "default": 1722411582170,
         "comment": 1722412245885,
         "options(primaryKey)": 1722411582170,
@@ -5153,7 +5152,7 @@
       {
         "options(notNull)": 1722411698791,
         "name": 1722411708285,
-        "dataType": 1722411698791,
+        "dataType": 1723612529330,
         "default": 1722411698791,
         "comment": 1722412269564
       }
@@ -5170,7 +5169,7 @@
       -1,
       {
         "name": 1722411719304,
-        "dataType": 1722411723356,
+        "dataType": 1723613135879,
         "options(notNull)": 1722411724642,
         "comment": 1722412273595
       }
@@ -5181,7 +5180,7 @@
       -1,
       {
         "name": 1722411739821,
-        "dataType": 1722411739821,
+        "dataType": 1723613157136,
         "default": 1722411739821,
         "comment": 1722412250858,
         "options(primaryKey)": 1722411739821,
@@ -5244,7 +5243,7 @@
       -1,
       {
         "comment": 1722412444688,
-        "dataType": 1722412449374,
+        "dataType": 1723612434357,
         "options(notNull)": 1722412449969,
         "name": 1722412454864,
         "options(primaryKey)": 1722412507779
@@ -5256,7 +5255,7 @@
       -1,
       {
         "name": 1722412535075,
-        "dataType": 1722412541227,
+        "dataType": 1723612438246,
         "options(notNull)": 1722412542266,
         "comment": 1722412563383
       }
@@ -5321,7 +5320,7 @@
       {
         "options(notNull)": 1722412514519,
         "name": 1722412526854,
-        "dataType": 1722412514519,
+        "dataType": 1723612434357,
         "default": 1722412514519,
         "comment": 1722412514519
       }
@@ -5346,7 +5345,7 @@
       -1,
       {
         "name": 1722423377386,
-        "dataType": 1722423377386,
+        "dataType": 1723612486435,
         "options(notNull)": 1722423377386,
         "default": 1722423377386,
         "comment": 1722476535144
@@ -5358,7 +5357,7 @@
       -1,
       {
         "name": 1722423382429,
-        "dataType": 1722423382429,
+        "dataType": 1723612488979,
         "options(notNull)": 1722423382429,
         "default": 1722423382429,
         "comment": 1722476531859
@@ -5377,7 +5376,7 @@
       {
         "options(notNull)": 1722427670051,
         "name": 1722427675172,
-        "dataType": 1722476719508,
+        "dataType": 1723612462867,
         "default": 1722427670051,
         "comment": 1722476528561
       }
@@ -5394,7 +5393,7 @@
       -1,
       {
         "name": 1722477266476,
-        "dataType": 1722477281070,
+        "dataType": 1723613162484,
         "comment": 1722477295948
       }
     ],
@@ -5410,7 +5409,7 @@
       -1,
       {
         "name": 1722560225137,
-        "dataType": 1722560509283,
+        "dataType": 1723619139689,
         "options(notNull)": 1722560510688,
         "comment": 1722560520602
       }
@@ -5421,7 +5420,7 @@
       -1,
       {
         "name": 1722568514133,
-        "dataType": 1722568526777,
+        "dataType": 1723613299596,
         "options(notNull)": 1722568529087,
         "comment": 1722568534130
       }
@@ -5443,7 +5442,7 @@
       {
         "name": 1722568889803,
         "options(primaryKey)": 1722568815592,
-        "dataType": 1722568826362,
+        "dataType": 1723618958882,
         "comment": 1722568842834
       }
     ],
@@ -5454,7 +5453,7 @@
       {
         "options(notNull)": 1722568649897,
         "name": 1722568745978,
-        "dataType": 1722568649897,
+        "dataType": 1723613146395,
         "default": 1722568649897,
         "comment": 1722568649897,
         "options(primaryKey)": 1722568814272
@@ -5484,7 +5483,7 @@
       {
         "options(notNull)": 1722568739529,
         "name": 1722568754914,
-        "dataType": 1722568739529,
+        "dataType": 1723618656084,
         "default": 1722568739529,
         "comment": 1722568739529
       }
@@ -5513,7 +5512,8 @@
         "name": 1722572253075,
         "options(notNull)": 1722572244332,
         "dataType": 1722572250061,
-        "comment": 1722572257062
+        "comment": 1722572257062,
+        "options(primaryKey)": 1723619309692
       }
     ],
     "G9aW6xhRDphtD2sqUSPdI": [
@@ -5522,7 +5522,7 @@
       -1,
       {
         "name": 1722572200110,
-        "dataType": 1722572242190,
+        "dataType": 1723619165395,
         "options(notNull)": 1722572243821,
         "comment": 1722572266711
       }
@@ -5533,7 +5533,7 @@
       -1,
       {
         "name": 1722839999564,
-        "dataType": 1722840059888,
+        "dataType": 1723616539043,
         "options(notNull)": 1722840060635,
         "comment": 1722840066823
       }
@@ -5545,7 +5545,7 @@
       {
         "options(notNull)": 1722840061251,
         "name": 1722840094725,
-        "dataType": 1722840101221,
+        "dataType": 1723616541507,
         "comment": 1722840106765
       }
     ]

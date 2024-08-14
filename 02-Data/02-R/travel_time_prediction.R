@@ -1,5 +1,5 @@
 library(MASS)
-setwd("C:/Users/bit/git/DriveWise/DriveWise/src/main/resources/r")
+setwd("C:/Users/bit/git/DriveWise/02-Data/02-R")
 load("travel_time_model.RData")
 
 predictTravelTime <- function(hour, average_speed, lanes, max_speed_limit, length, tci) {

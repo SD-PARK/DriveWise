@@ -13,7 +13,7 @@ public class TravelTimePrediction {
             rConn = new RConnection();
 
             // 프로젝트 폴더 내의 R 스크립트 상대 경로 설정
-            String rScriptPath = "C:/Users/bit/git/DriveWise/DriveWise/src/main/resources/r/travel_time_prediction.R";
+            String rScriptPath = "C:/Users/bit/git/DriveWise/02-Data/02-R/travel_time_prediction.R";
             
             // R 스크립트 로드
             rConn.eval("source('" + rScriptPath + "')");

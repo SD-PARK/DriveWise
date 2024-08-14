@@ -6,7 +6,9 @@
 	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-
+	
+	<context:component-scan base-package="com.drivewise.smarttraffic"/>
+	
 	<!-- JDBC Settings -->
 	<context:property-placeholder location="classpath:database/jdbc.properties"/>
 	
@@ -27,7 +29,6 @@
 		<property name="dataSource" ref="dataSource"/>
 		<property name="mapperLocations" value="classpath:com/driverwise/smarttraffic/repository/*.xml"/>
 	</bean>
+	<mybatis-spring:scan base-package="com.drivewise.smarttraffic.dao"/>
 	 -->
-	 
-	<mybatis-spring:scan base-package="com.spring.addr"/>
 </beans>

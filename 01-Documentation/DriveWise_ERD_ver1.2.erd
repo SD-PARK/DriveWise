@@ -4,8 +4,8 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -678,
-    "scrollLeft": -293,
+    "scrollTop": -687,
+    "scrollLeft": -133,
     "zoomLevel": 0.9,
     "show": 431,
     "database": 4,
@@ -985,18 +985,18 @@
         "tableId": "GeZrQVHSEZtlCgSUi-wvr",
         "name": "name",
         "comment": "노드 명칭",
-        "dataType": "VARCHAR2(40",
+        "dataType": "VARCHAR2(50)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 60,
-          "widthDataType": 77,
+          "widthDataType": 81,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1723612480505,
+          "updateAt": 1723782488311,
           "createAt": 1722253561635
         }
       },
@@ -2485,7 +2485,7 @@
         "tableId": "DC4sxj8H76VCd6-2II3ap",
         "name": "length",
         "comment": "링크 길이(m)",
-        "dataType": "NUMBER(15, 11)",
+        "dataType": "NUMBER(20, 15)",
         "default": "",
         "options": 8,
         "ui": {
@@ -2496,7 +2496,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1723613295536,
+          "updateAt": 1723779253249,
           "createAt": 1722403912854
         }
       },
@@ -3185,18 +3185,18 @@
         "tableId": "3uO5g3EP3ffLoq2MELdI-",
         "name": "segment_weight",
         "comment": "기상정보 산출에 곱할 가중치",
-        "dataType": "DOUBLE",
+        "dataType": "NUMBER(25, 24)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 89,
           "widthComment": 156,
-          "widthDataType": 60,
+          "widthDataType": 89,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1722568915475,
+          "updateAt": 1723778567823,
           "createAt": 1722568689457
         }
       },
@@ -3761,7 +3761,7 @@
           "columnIds": [
             "znBLj23vLv1IKwq58pqEn"
           ],
-          "x": 976.9445,
+          "x": 986.4445,
           "y": 1377.7823,
           "direction": 4
         },
@@ -3789,7 +3789,7 @@
           "columnIds": [
             "VLFn-YBGCZSVjnTK_0kTi"
           ],
-          "x": 976.9445,
+          "x": 986.4445,
           "y": 1529.7823,
           "direction": 8
         },
@@ -4036,7 +4036,7 @@
       -1,
       {
         "name": 1722412119402,
-        "dataType": 1723612480504,
+        "dataType": 1723782488310,
         "options(notNull)": 1722311827317,
         "comment": 1722337955118
       }
@@ -5039,7 +5039,7 @@
       -1,
       {
         "name": 1722403916549,
-        "dataType": 1723613295535,
+        "dataType": 1723779253249,
         "options(notNull)": 1722404442791,
         "comment": 1722412254116
       }
@@ -5499,7 +5499,7 @@
       {
         "name": 1722568901975,
         "options(notNull)": 1722568828640,
-        "dataType": 1722568905874,
+        "dataType": 1723778567823,
         "comment": 1722568915475
       }
     ],

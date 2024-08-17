@@ -206,29 +206,48 @@ function clearMarkers(type='both') {
 }
 
 // 길 안내
-function routing() {
+async function routing() {
     if (!startLocation || !endLocation) {
         console.log("location not selected.");
         return;
     }
+    // const loc = {
+    //     start: {
+    //         name: startLocation.name,
+    //         address: startLocation.formatted_address,
+    //         coordinates: {
+    //             lat: startLocation.geometry.location.lat(),
+    //             lng: startLocation.geometry.location.lng()
+    //         }
+    //     },
+    //     end: {
+    //         name: endLocation.name,
+    //         address: endLocation.formatted_address,
+    //         coordinates: {
+    //             lat: endLocation.geometry.location.lat(),
+    //             lng: endLocation.geometry.location.lng()
+    //         }
+    //     }
+    // };
 
-    console.log('Start Location:', {
-        name: startLocation.name,
-        address: startLocation.formatted_address,
-        coordinates: {
-            lat: startLocation.geometry.location.lat(),
-            lng: startLocation.geometry.location.lng()
-        }
-    });
+    const url = '/route/directions';
+    const data = {
+        startLng: startLocation.geometry.location.lng(),
+        startLat: startLocation.geometry.location.lat(),
+        endLng: endLocation.geometry.location.lng(),
+        endLat: endLocation.geometry.location.lat(),
+    };
 
-    console.log('End Location:', {
-        name: endLocation.name,
-        address: endLocation.formatted_address,
-        coordinates: {
-            lat: endLocation.geometry.location.lat(),
-            lng: endLocation.geometry.location.lng()
-        }
+    const response = await fetch(url + '?' + new URLSearchParams(data), {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        credential: 'same-origin',
+        header: { 'Content-Type': 'application/json' },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
     });
+    console.log(response);
 }
 
 // 장소 초기화

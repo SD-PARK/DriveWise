@@ -12,6 +12,7 @@
 		<org.springframework-version>5.0.7.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
+    	<geotools.version>31-SNAPSHOT</geotools.version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -194,7 +195,39 @@
 		    <artifactId>Rserve</artifactId>
 		    <version>1.8.1</version>
 		</dependency>
+		
+		<!-- GeoTools -->
+	    <dependency>
+	      <groupId>org.geotools</groupId>
+	      <artifactId>gt-shapefile</artifactId>
+	      <version>${geotools.version}</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>org.geotools</groupId>
+	      <artifactId>gt-swing</artifactId>
+	      <version>${geotools.version}</version>
+	    </dependency>
+		
 	</dependencies>
+	
+	<!-- GeoTools -->
+    <repositories>
+	    <repository>
+		    <id>osgeo</id>
+		    <name>OSGeo Release Repository</name>
+		    <url>https://repo.osgeo.org/repository/release/</url>
+		    <snapshots><enabled>false</enabled></snapshots>
+		    <releases><enabled>true</enabled></releases>
+	    </repository>
+	    <repository>
+		    <id>osgeo-snapshot</id>
+		    <name>OSGeo Snapshot Repository</name>
+		    <url>https://repo.osgeo.org/repository/snapshot/</url>
+		    <snapshots><enabled>true</enabled></snapshots>
+		    <releases><enabled>false</enabled></releases>
+	    </repository>
+  	</repositories>
+  	
     <build>
         <plugins>
             <plugin>

@@ -1,4 +1,4 @@
-package com.drivewise.smrattraffic.pridiction;
+package com.drivewise.smrattraffic.prediction;
 
 import org.rosuda.REngine.REXP;
 import org.rosuda.REngine.Rserve.RConnection;

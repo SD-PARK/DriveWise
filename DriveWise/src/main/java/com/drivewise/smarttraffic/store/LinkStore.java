@@ -47,8 +47,12 @@ public class LinkStore {
 		return links.get(id);
 	}
 	
-	public List<LinkInfoDTO> getAllLinkInfo() {
+	public List<LinkInfoDTO> getLinkInfoList() {
 		List<LinkInfoDTO> linkList = new ArrayList<>(links.values());
 		return linkList;
+	}
+	
+	public Map<Long, LinkInfoDTO> getLinkInfoMap() {
+		return links;
 	}
 }

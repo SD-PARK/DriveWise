@@ -1,5 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
 
+let map;
 let startLocation, endLocation;
 let startMarker = null;
 let endMarker = null;
@@ -33,10 +34,9 @@ function InfoWindowInnerHTML(event) {
     
     let result = '';
     const map = new Map();
-    map.set('도로명', event.feature.getProperty('ROAD_NAME'));
-    map.set('길이', event.feature.getProperty('LENGTH').toFixed(2)+'km');
-    map.set('차로 수', event.feature.getProperty('LANES'));
-    map.set('제한속도', event.feature.getProperty('MAX_SPD')+'km/h');
+    map.set('도로명', event.feature.getProperty('roadName'));
+    map.set('길이', event.feature.getProperty('length').toFixed(2)+'km');
+    map.set('제한속도', event.feature.getProperty('maxSpeed')+'km/h');
 
     for (let [key, value] of map) {
         result += key + ': ' + value + '<br>';
@@ -66,15 +66,24 @@ function initMap() {
         streetViewControl: false,
         fullscreenControl: false,
     };
-    const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    map.data.loadGeoJson('resources/jeju_link.geojson');
+    // printRoadMap(map, geojson);
+    
+    addPlaceSearch(document.getElementById('start-location'), 'start');
+    addPlaceSearch(document.getElementById('end-location'), 'end');
+}
+
+// 도로 그리기
+function printRoadMap(geoJson) {
+    if (!map) return;
+
+    map.data.addGeoJson(geoJson);
     map.data.setStyle((feature) => {
-        const linkId = feature.getProperty('link_id');
-        const upItsId = feature.getProperty('up_its_id');
-        const dwItsId = feature.getProperty('dw_its_id');
-        const empId = feature.getProperty('emp_id');
-        // if (upItsId === 4050024005) {
+        // 혼잡지수, 경로평가지수에 따른 Style 지정할 예정
+        
+        // const linkId = feature.getProperty('link_id');
+        // if (linkId === 4050024005) {
         //     return roadStyle;
         // } else {
         //     return { visible: false };
@@ -83,15 +92,14 @@ function initMap() {
         return roadStyle;
     });
 
-    infoWindowEvents(map);
-    
-    addPlaceSearch(map, document.getElementById('start-location'), 'start');
-    addPlaceSearch(map, document.getElementById('end-location'), 'end');
+    infoWindowEvents();
 }
 
 
 // 도로 정보 출력
-function infoWindowEvents(map) {
+function infoWindowEvents() {
+    if (!map) return;
+
     const customInfoWindow = document.getElementById('customInfoWindow');
     if (!customInfoWindow) return;
     
@@ -140,8 +148,8 @@ function drawOverlay(customInfoWindow) {
 }
 
 // 장소 검색 기능 추가
-function addPlaceSearch(map, input, type='start') {
-    if (!input) return;
+function addPlaceSearch(input, type='start') {
+    if (!map || !input) return;
 
     const searchBox = new google.maps.places.SearchBox(input);
 
@@ -238,7 +246,8 @@ async function routing() {
         endLat: endLocation.geometry.location.lat(),
     };
 
-    const response = await fetch(url + '?' + new URLSearchParams(data), {
+    console.log(url + '?' + new URLSearchParams(data));
+    fetch(url + '?' + new URLSearchParams(data), {
         method: 'GET',
         mode: 'cors',
         cache: 'no-cache',
@@ -246,8 +255,9 @@ async function routing() {
         header: { 'Content-Type': 'application/json' },
         redirect: 'follow',
         referrerPolicy: 'no-referrer',
-    });
-    console.log(response);
+    }).then(response => response.json())
+      .then(data => printRoadMap(data))
+      .catch(error => console.error('Error:', error));
 }
 
 // 장소 초기화

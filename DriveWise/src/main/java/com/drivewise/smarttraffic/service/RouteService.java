@@ -13,19 +13,22 @@ import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.MultiLineString;
 import org.locationtech.jts.geom.Point;
-import org.locationtech.jts.operation.distance.DistanceOp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.drivewise.smarttraffic.dto.CoordinatesDTO;
 import com.drivewise.smarttraffic.dto.LinkDTO;
+import com.drivewise.smarttraffic.dto.NodeDTO;
 import com.drivewise.smarttraffic.dto.RouteDTO;
 import com.drivewise.smarttraffic.store.LinkStore;
+import com.drivewise.smarttraffic.store.NodeStore;
 
 @Service
 public class RouteService implements IRouteService {
 	@Autowired
 	LinkStore linkStore;
+	@Autowired
+	NodeStore nodeStore;
     GeometryFactory geometryFactory = JTSFactoryFinder.getGeometryFactory();
 
 	@Override
@@ -38,16 +41,17 @@ public class RouteService implements IRouteService {
 		Point point = geometryFactory.createPoint(new Coordinate(lng, lat));
         double nearestDistance = Double.MAX_VALUE;
         
-        for (LinkDTO link : linkStore.getLinkList()) {
-        	if (link.getGeometry() == null) continue;
+        for (NodeDTO node : nodeStore.getNodeList()) {
+        	Coordinate nodeCoor = node.getCoordinate();
+        	if (nodeCoor == null) continue;
         	
-            MultiLineString geometry = link.getGeometry();
+            Point nodePoint = geometryFactory.createPoint(nodeCoor);
 
-            double distance = DistanceOp.distance(geometry, point);
+            double distance = point.distance(nodePoint);
 
             if (distance < nearestDistance) {
                 nearestDistance = distance;
-                result = link.getLinkId();
+                result = node.getNodeId();
             }
         }
 
@@ -57,13 +61,13 @@ public class RouteService implements IRouteService {
 	@Override
 	public List<RouteDTO> findOptimalPath(CoordinatesDTO coor) {
 		Map<Long, LinkDTO> linkMap = linkStore.getLinkMap();
-		long startLinkId = findNearestRoad(coor.getStartLng(), coor.getStartLat());
-		long endLinkId = findNearestRoad(coor.getEndLng(), coor.getEndLat());
+		long startNodeId = findNearestRoad(coor.getStartLng(), coor.getStartLat());
+		long endNodeId = findNearestRoad(coor.getEndLng(), coor.getEndLat());
 		List<RouteDTO> result = new LinkedList<>();
 		
-		if (startLinkId == endLinkId) throw new IllegalArgumentException("경로 간 거리가 너무 가깝습니다.");
+		if (startNodeId == endNodeId) throw new IllegalArgumentException("경로 간 거리가 너무 가깝습니다.");
 
-		List<Long> path = Dajkstra(startLinkId, endLinkId);
+		List<Long> path = Dajkstra(startNodeId, endNodeId);
 		for (long linkId: path) {
 			LinkDTO link = linkMap.get(linkId);
 			RouteDTO route = new RouteDTO();
@@ -78,48 +82,53 @@ public class RouteService implements IRouteService {
         return result;
 	}
 	
-	public List<Long> Dajkstra(long startLinkId, long endLinkId) {
+	public List<Long> Dajkstra(long startNodeId, long endNodeId) {
+		Map<Long, NodeDTO> nodeMap = nodeStore.getNodeMap();
 		Map<Long, LinkDTO> linkMap = linkStore.getLinkMap();
 
         Map<Long, Double> distances = new HashMap<>();
         Map<Long, Long> previousLinks = new HashMap<>();
+        Map<Long, Long> previousNodes = new HashMap<>();
         PriorityQueue<Long> pq = new PriorityQueue<>(Comparator.comparingDouble(distances::get));
 
-        for (Long linkId : linkMap.keySet()) {
-            distances.put(linkId, Double.MAX_VALUE);
+        for (Long nodeId : nodeMap.keySet()) {
+            distances.put(nodeId, Double.MAX_VALUE);
         }
 
-        distances.put(startLinkId, 0.0);
-        pq.add(startLinkId);
+        distances.put(startNodeId, 0.0);
+        pq.add(startNodeId);
 
         while (!pq.isEmpty()) {
-            long currentLinkId = pq.poll();
-            LinkDTO currentLink = linkMap.get(currentLinkId);
+            long currentNodeId = pq.poll();
 
-            if (currentLinkId == endLinkId) {
-                break;
-            }
+            if (currentNodeId == endNodeId) break;
             
             for (LinkDTO neighborLink : linkMap.values()) {
-                if (neighborLink.getStartNodeId() == currentLink.getEndNodeId()) {
-                    long neighborLinkId = neighborLink.getLinkId();
-                    double newDist = distances.get(currentLinkId) + neighborLink.getLength();
+                if (neighborLink.getStartNodeId() == currentNodeId) {
+                    long neighborNodeId = neighborLink.getEndNodeId();
+                    double newDist = distances.get(currentNodeId) + neighborLink.getLength();
 
-                    if (newDist < distances.get(neighborLinkId)) {
-                        distances.put(neighborLinkId, newDist);
-                        previousLinks.put(neighborLinkId, currentLinkId);
-                        pq.add(neighborLinkId);
+                    if (newDist < distances.get(neighborNodeId)) {
+                        distances.put(neighborNodeId, newDist);
+                        previousLinks.put(neighborNodeId, neighborLink.getLinkId()); // Link ID를 저장
+                        previousNodes.put(neighborNodeId, currentNodeId); // Node를 경로로 저장
+                        pq.add(neighborNodeId);
                     }
                 }
             }
         }
 
-        // 경로 추적: 종료 링크부터 시작 링크까지 추적하여 경로를 생성
+        // 종료 링크부터 시작 링크까지 추적하여 경로를 생성
         List<Long> path = new LinkedList<>();
-        for (Long at = endLinkId; at != null; at = previousLinks.get(at)) {
-            path.add(at);
+        Long currentNode = endNodeId;
+
+        while (currentNode != null && previousNodes.containsKey(currentNode)) {
+            Long linkId = previousLinks.get(currentNode);
+            if (linkId != null) {
+                path.add(0, linkId);
+            }
+            currentNode = previousNodes.get(currentNode);
         }
-        Collections.reverse(path);
         
         return path;
 	}

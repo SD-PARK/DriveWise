@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.drivewise.smarttraffic.dto.CoordinatesDTO;
-import com.drivewise.smarttraffic.dto.LinkInfoDTO;
+import com.drivewise.smarttraffic.dto.LinkDTO;
 import com.drivewise.smarttraffic.dto.RouteDTO;
 import com.drivewise.smarttraffic.store.LinkStore;
 
@@ -38,16 +38,16 @@ public class RouteService implements IRouteService {
 		Point point = geometryFactory.createPoint(new Coordinate(lng, lat));
         double nearestDistance = Double.MAX_VALUE;
         
-        for (LinkInfoDTO linkInfo : linkStore.getLinkInfoList()) {
-        	if (linkInfo.getGeometry() == null) continue;
+        for (LinkDTO link : linkStore.getLinkList()) {
+        	if (link.getGeometry() == null) continue;
         	
-            MultiLineString geometry = linkInfo.getGeometry();
+            MultiLineString geometry = link.getGeometry();
 
             double distance = DistanceOp.distance(geometry, point);
 
             if (distance < nearestDistance) {
                 nearestDistance = distance;
-                result = linkInfo.getLinkId();
+                result = link.getLinkId();
             }
         }
 
@@ -56,7 +56,7 @@ public class RouteService implements IRouteService {
 
 	@Override
 	public List<RouteDTO> findOptimalPath(CoordinatesDTO coor) {
-		Map<Long, LinkInfoDTO> linkInfoMap = linkStore.getLinkInfoMap();
+		Map<Long, LinkDTO> linkMap = linkStore.getLinkMap();
 		long startLinkId = findNearestRoad(coor.getStartLng(), coor.getStartLat());
 		long endLinkId = findNearestRoad(coor.getEndLng(), coor.getEndLat());
 		List<RouteDTO> result = new LinkedList<>();
@@ -65,13 +65,13 @@ public class RouteService implements IRouteService {
 
 		List<Long> path = Dajkstra(startLinkId, endLinkId);
 		for (long linkId: path) {
-			LinkInfoDTO linkInfo = linkInfoMap.get(linkId);
+			LinkDTO link = linkMap.get(linkId);
 			RouteDTO route = new RouteDTO();
 
-			route.setRoadName(linkInfo.getName());
-			route.setMaxSpeed(linkInfo.getMaxSpeedLimit());
-			route.setLength((float) linkInfo.getLength());
-			route.setGeometry(linkInfo.getGeometry());
+			route.setRoadName(link.getName());
+			route.setMaxSpeed(link.getMaxSpeedLimit());
+			route.setLength((float) link.getLength());
+			route.setGeometry(link.getGeometry());
 			result.add(route);
 		}
 		
@@ -79,13 +79,13 @@ public class RouteService implements IRouteService {
 	}
 	
 	public List<Long> Dajkstra(long startLinkId, long endLinkId) {
-		Map<Long, LinkInfoDTO> linkInfoMap = linkStore.getLinkInfoMap();
+		Map<Long, LinkDTO> linkMap = linkStore.getLinkMap();
 
         Map<Long, Double> distances = new HashMap<>();
         Map<Long, Long> previousLinks = new HashMap<>();
         PriorityQueue<Long> pq = new PriorityQueue<>(Comparator.comparingDouble(distances::get));
 
-        for (Long linkId : linkInfoMap.keySet()) {
+        for (Long linkId : linkMap.keySet()) {
             distances.put(linkId, Double.MAX_VALUE);
         }
 
@@ -94,13 +94,13 @@ public class RouteService implements IRouteService {
 
         while (!pq.isEmpty()) {
             long currentLinkId = pq.poll();
-            LinkInfoDTO currentLink = linkInfoMap.get(currentLinkId);
+            LinkDTO currentLink = linkMap.get(currentLinkId);
 
             if (currentLinkId == endLinkId) {
                 break;
             }
             
-            for (LinkInfoDTO neighborLink : linkInfoMap.values()) {
+            for (LinkDTO neighborLink : linkMap.values()) {
                 if (neighborLink.getStartNodeId() == currentLink.getEndNodeId()) {
                     long neighborLinkId = neighborLink.getLinkId();
                     double newDist = distances.get(currentLinkId) + neighborLink.getLength();

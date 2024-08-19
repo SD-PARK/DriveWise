@@ -5,7 +5,7 @@ import org.locationtech.jts.geom.MultiLineString;
 import lombok.Data;
 
 @Data
-public class LinkInfoDTO {
+public class LinkDTO {
 	long linkId, startNodeId, endNodeId;
 	int lanes, roadRankCode, roadTypeCode, maxSpeedLimit, awsId, coordinatesCount;
 	String name;

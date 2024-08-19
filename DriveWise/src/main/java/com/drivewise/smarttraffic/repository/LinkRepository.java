@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.drivewise.smarttraffic.dto.LinkInfoDTO;
+import com.drivewise.smarttraffic.dto.LinkDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,37 +24,37 @@ public class LinkRepository implements ILinkRepository {
 	private JdbcTemplate jdbcTemplate;
 	private WKTReader reader = new WKTReader();
 	
-	private RowMapper<LinkInfoDTO> linkInfoRowMapper() {
+	private RowMapper<LinkDTO> linkRowMapper() {
 		return ((ResultSet rs, int rowNum) -> {
-			LinkInfoDTO linkInfo = new LinkInfoDTO();
-			linkInfo.setLinkId(rs.getLong("id"));
-			linkInfo.setStartNodeId(rs.getLong("start_node_id"));
-			linkInfo.setEndNodeId(rs.getLong("end_node_id"));
-			linkInfo.setLanes(rs.getInt("lanes"));
-			linkInfo.setName(rs.getString("name"));
-			linkInfo.setRoadRankCode(rs.getInt("road_rank_code"));
-			linkInfo.setRoadTypeCode(rs.getInt("road_type_code"));
-			linkInfo.setRoadUse(rs.getBoolean("road_use"));
-			linkInfo.setMaxSpeedLimit(rs.getInt("max_speed_limit"));
-			linkInfo.setLength(rs.getDouble("length"));
-			linkInfo.setAwsId(rs.getInt("aws_id"));
-			linkInfo.setCoordinatesCount(rs.getInt("component_coordinates_count"));
+			LinkDTO link = new LinkDTO();
+			link.setLinkId(rs.getLong("id"));
+			link.setStartNodeId(rs.getLong("start_node_id"));
+			link.setEndNodeId(rs.getLong("end_node_id"));
+			link.setLanes(rs.getInt("lanes"));
+			link.setName(rs.getString("name"));
+			link.setRoadRankCode(rs.getInt("road_rank_code"));
+			link.setRoadTypeCode(rs.getInt("road_type_code"));
+			link.setRoadUse(rs.getBoolean("road_use"));
+			link.setMaxSpeedLimit(rs.getInt("max_speed_limit"));
+			link.setLength(rs.getDouble("length"));
+			link.setAwsId(rs.getInt("aws_id"));
+			link.setCoordinatesCount(rs.getInt("component_coordinates_count"));
 			MultiLineString geometry = null;
 			try {
 				String str = rs.getString("geometry");
 				geometry = (MultiLineString) reader.read(str);
 			} catch (ParseException e) {}
-			linkInfo.setGeometry(geometry);
+			link.setGeometry(geometry);
 			
-			return linkInfo;
+			return link;
 		});
 	};
 
 	@Override
-	public LinkInfoDTO getLinkInfo(long id) {
+	public LinkDTO getLink(long id) {
 		String sql = "SELECT * FROM links WHERE id = ?";
 		try {
-			return jdbcTemplate.queryForObject(sql, linkInfoRowMapper(), id);
+			return jdbcTemplate.queryForObject(sql, linkRowMapper(), id);
 		} catch (EmptyResultDataAccessException e) {
 			log.warn("ID가 {}인 링크를 찾을 수 없습니다.", id);
 			return null;
@@ -65,8 +65,8 @@ public class LinkRepository implements ILinkRepository {
 	}
 
 	@Override
-	public List<LinkInfoDTO> getAllLinkInfo() {
+	public List<LinkDTO> getAllLink() {
 		String sql = "SELECT * FROM links";
-		return jdbcTemplate.query(sql, linkInfoRowMapper());
+		return jdbcTemplate.query(sql, linkRowMapper());
 	}
 }

@@ -10,7 +10,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.drivewise.smarttraffic.dto.LinkInfoDTO;
+import com.drivewise.smarttraffic.dto.LinkDTO;
 import com.drivewise.smarttraffic.repository.ILinkRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -20,19 +20,19 @@ import lombok.extern.slf4j.Slf4j;
 public class LinkStore {
 	@Autowired
 	private ILinkRepository linkRepository;
-	private Map<Long, LinkInfoDTO> links;
+	private Map<Long, LinkDTO> links;
 
     @PostConstruct
 	public void init() {
-		loadLinkInfo();
+		loadLinks();
 	}
 	
-	public boolean loadLinkInfo() {
+	public boolean loadLinks() {
 		try {
 			links = new HashMap<>();
-			List<LinkInfoDTO> linkList = linkRepository.getAllLinkInfo();
+			List<LinkDTO> linkList = linkRepository.getAllLink();
 			
-			for (LinkInfoDTO link: linkList)
+			for (LinkDTO link: linkList)
 				links.put(link.getLinkId(), link);
 			
 			log.info("링크 정보를 업데이트했습니다");
@@ -43,16 +43,16 @@ public class LinkStore {
 		}
 	}
 	
-	public LinkInfoDTO getLinkInfo(long id) {
+	public LinkDTO getLink(long id) {
 		return links.get(id);
 	}
 	
-	public List<LinkInfoDTO> getLinkInfoList() {
-		List<LinkInfoDTO> linkList = new ArrayList<>(links.values());
+	public List<LinkDTO> getLinkList() {
+		List<LinkDTO> linkList = new ArrayList<>(links.values());
 		return linkList;
 	}
 	
-	public Map<Long, LinkInfoDTO> getLinkInfoMap() {
+	public Map<Long, LinkDTO> getLinkMap() {
 		return links;
 	}
 }

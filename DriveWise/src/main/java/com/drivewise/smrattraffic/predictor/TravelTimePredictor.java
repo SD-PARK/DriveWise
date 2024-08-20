@@ -1,9 +1,9 @@
-package com.drivewise.smrattraffic.prediction;
+package com.drivewise.smrattraffic.predictor;
 
 import org.rosuda.REngine.REXP;
 import org.rosuda.REngine.Rserve.RConnection;
 
-public class TravelTimePrediction {
+public class TravelTimePredictor {
 	public int predict(int hour, double averageSpeed, int lanes, int maxSpeedLimit, double length, double tci) {
 		// 임시로 넣어둠
         RConnection rConn = null;

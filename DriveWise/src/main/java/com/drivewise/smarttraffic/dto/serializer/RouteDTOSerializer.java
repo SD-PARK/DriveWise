@@ -1,5 +1,6 @@
-package com.drivewise.smarttraffic.dto;
+package com.drivewise.smarttraffic.dto.serializer;
 
+import com.drivewise.smarttraffic.dto.RouteDTO;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;

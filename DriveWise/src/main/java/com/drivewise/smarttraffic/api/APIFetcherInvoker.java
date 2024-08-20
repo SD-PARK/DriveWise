@@ -1,4 +1,4 @@
-package com.drivewise.smarttraffic.invoker;
+package com.drivewise.smarttraffic.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,6 +18,6 @@ public class APIFetcherInvoker {
     }
 	
 	public void invoke() {
-		linkTrafficFetcher.fetch();
+		LinkTrafficDTO linkTraffic = linkTrafficFetcher.fetch();
 	}
 }

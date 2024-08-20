@@ -1,10 +1,10 @@
 # Eclipse/STS
 .settings/
-.classpath
-.project
+# .classpath
+# .project
 
 # Maven
 /target/
 
 # DB Settings (Temporary)
-# src/main/resources/database/
+src/main/resources/database/

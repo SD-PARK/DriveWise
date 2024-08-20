@@ -7,6 +7,6 @@ import com.drivewise.smarttraffic.dto.RouteDTO;
 
 public interface IRouteService {
 	void getRecentREIs();
-	long findNearestRoad(double lng, double lat);
+	long findNearestNode(double lng, double lat);
 	List<RouteDTO> findOptimalPath(CoordinatesDTO coor);
 }

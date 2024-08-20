@@ -1,6 +1,5 @@
 package com.drivewise.smarttraffic.service;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -11,7 +10,6 @@ import java.util.PriorityQueue;
 import org.geotools.geometry.jts.JTSFactoryFinder;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.GeometryFactory;
-import org.locationtech.jts.geom.MultiLineString;
 import org.locationtech.jts.geom.Point;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,7 +34,7 @@ public class RouteService implements IRouteService {
 	}
 
 	@Override
-	public long findNearestRoad(double lng, double lat) {
+	public long findNearestNode(double lng, double lat) {
         Long result = null;
 		Point point = geometryFactory.createPoint(new Coordinate(lng, lat));
         double nearestDistance = Double.MAX_VALUE;
@@ -61,13 +59,13 @@ public class RouteService implements IRouteService {
 	@Override
 	public List<RouteDTO> findOptimalPath(CoordinatesDTO coor) {
 		Map<Long, LinkDTO> linkMap = linkStore.getLinkMap();
-		long startNodeId = findNearestRoad(coor.getStartLng(), coor.getStartLat());
-		long endNodeId = findNearestRoad(coor.getEndLng(), coor.getEndLat());
+		long startNodeId = findNearestNode(coor.getStartLng(), coor.getStartLat());
+		long endNodeId = findNearestNode(coor.getEndLng(), coor.getEndLat());
 		List<RouteDTO> result = new LinkedList<>();
 		
 		if (startNodeId == endNodeId) throw new IllegalArgumentException("경로 간 거리가 너무 가깝습니다.");
 
-		List<Long> path = Dajkstra(startNodeId, endNodeId);
+		List<Long> path = getRouteLinkIds(startNodeId, endNodeId);
 		for (long linkId: path) {
 			LinkDTO link = linkMap.get(linkId);
 			RouteDTO route = new RouteDTO();
@@ -82,7 +80,7 @@ public class RouteService implements IRouteService {
         return result;
 	}
 	
-	public List<Long> Dajkstra(long startNodeId, long endNodeId) {
+	public List<Long> getRouteLinkIds(long startNodeId, long endNodeId) {
 		Map<Long, NodeDTO> nodeMap = nodeStore.getNodeMap();
 		Map<Long, LinkDTO> linkMap = linkStore.getLinkMap();
 
@@ -110,15 +108,14 @@ public class RouteService implements IRouteService {
 
                     if (newDist < distances.get(neighborNodeId)) {
                         distances.put(neighborNodeId, newDist);
-                        previousLinks.put(neighborNodeId, neighborLink.getLinkId()); // Link ID를 저장
-                        previousNodes.put(neighborNodeId, currentNodeId); // Node를 경로로 저장
+                        previousLinks.put(neighborNodeId, neighborLink.getLinkId());
+                        previousNodes.put(neighborNodeId, currentNodeId);
                         pq.add(neighborNodeId);
                     }
                 }
             }
         }
 
-        // 종료 링크부터 시작 링크까지 추적하여 경로를 생성
         List<Long> path = new LinkedList<>();
         Long currentNode = endNodeId;
 

@@ -17,7 +17,7 @@ public class DataFetchingScheduler {
 	@Autowired
 	private PredictionHandler predictionHandler;
 
-	@Scheduled(cron = "0 0/1 * * * ?")
+	@Scheduled(cron = "0 0/5 * * * ?")
 	public void runTasks() {
 		log.info("작업 중");
 		apiFetcherInvoker.invoke();

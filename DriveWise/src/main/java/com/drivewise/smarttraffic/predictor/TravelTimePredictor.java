@@ -1,44 +1,65 @@
-package com.drivewise.smrattraffic.predictor;
+package com.drivewise.smarttraffic.predictor;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 import org.rosuda.REngine.REXP;
 import org.rosuda.REngine.Rserve.RConnection;
+import org.rosuda.REngine.Rserve.RserveException;
+import org.springframework.stereotype.Component;
 
+import com.drivewise.smarttraffic.dto.PredictInputDTO;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Component
 public class TravelTimePredictor {
-	public int predict(int hour, double averageSpeed, int lanes, int maxSpeedLimit, double length, double tci) {
-		// 임시로 넣어둠
-        RConnection rConn = null;
-        
-        try {
-            // Rserve 실행
-            rConn = new RConnection();
-
-            // 프로젝트 폴더 내의 R 스크립트 상대 경로 설정
-            String rScriptPath = "C:/Users/bit/git/DriveWise/02-Data/02-R/travel_time_prediction.R";
-            
-            // R 스크립트 로드
+    private RConnection rConn = null;
+	private static final String rScriptPath = "C:/Users/bit/git/DriveWise/02-Data/02-R/travel_time_prediction.R";
+	
+	@PostConstruct
+	public void init() {
+		try {
+			rConn = new RConnection();
             rConn.eval("source('" + rScriptPath + "')");
-
-            // R에서 예측 수행
-            REXP prediction = rConn.eval(String.format(
-        	    "predictTravelTime(%d, %f, %d, %d, %f, %f)",
-        	    hour, averageSpeed, lanes, maxSpeedLimit, length, tci
-        	));
-            
-            // 예측 결과 가져오기
-            int predictedTravelTime = prediction.asInteger();
-
-            return predictedTravelTime;
+		} catch (RserveException e) {
+			log.error("R Connection을 연결하지 못했습니다: " + e.getMessage());
+		}
+		
+	}
+	
+	@PreDestroy
+	public void destroy() {
+        try {
+        	if (rConn != null) rConn.close();
         } catch (Exception e) {
-            e.printStackTrace();
-            return -1;
-        } finally {
-            if (rConn != null) {
-                try {
-                    rConn.close();
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
+        	log.error("R Connection을 종료하지 못했습니다: " + e.getMessage());
         }
+	}
+	
+	public int predict(PredictInputDTO dto) {
+		int result = 100;
+		
+		try {
+	        REXP prediction = rConn.eval(String.format(
+        	    "predictTravelTime(%d, %d, %d, %d, %f, %f)",
+        	    dto.getHour(),
+        	    dto.getAverageSpeed(),
+        	    dto.getLanes(),
+        	    dto.getMaxSpeedLimit(),
+        	    dto.getLength(),
+        	    dto.getTci()
+        	));
+	            
+            result = prediction.asInteger();
+            
+            if (result > 100) result = 100;
+            else if (result < 0) result = 0;
+		} catch (Exception e) {
+			log.error("도로 통행시간 예측 실패: ", e.getMessage());
+		}
+
+        return result;
 	}
 }

@@ -1,4 +1,4 @@
-package com.drivewise.smarttraffic.API.dto;
+package com.drivewise.smarttraffic.api.dto;
 
 import java.time.LocalDateTime;
 

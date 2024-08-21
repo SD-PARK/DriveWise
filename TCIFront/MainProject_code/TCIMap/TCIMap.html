@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TCIMap</title>
+    <link rel="stylesheet" href="./css/TCIMap.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo-box">
+        <a href="#">
+          <img class="logo" src="images/logo.png" alt="드라이브와이즈 로고" />
+        </a>
+      </div>
+      <nav class="nav">
+        <ul class="nav-menu">
+          <li>
+            <a href="#">혼잡지수 분석</a>
+            <div class="sub-menu">
+              <ul>
+                <li><a href="#">혼잡지수 분석 1</a></li>
+                <li><a href="#">혼잡지수 분석 2</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">안전지수 분석</a>
+            <div class="sub-menu">
+              <ul>
+                <li><a href="#">안전지수 분석 1</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">최적 경로 안내</a>
+            <div class="sub-menu">
+              <ul>
+                <li><a href="#">최적 경로 안내 1</a></li>
+                <li><a href="#">최적 경로 안내 2</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="menu-box">
+        <div class="menu-btn">☰</div>
+      </div>
+      <div class="mobile-nav-wrap">
+        <div class="inner-wrap">
+          <div class="mobile-nav">
+            <ul class="nav-menu">
+              <li>
+                <a href="#">혼잡지수 분석</a>
+              </li>
+              <li>
+                <a href="#">안전지수 분석</a>
+              </li>
+              <li>
+                <a href="#">최적 경로 안내</a>
+              </li>
+            </ul>
+          </div>
+          <div class="info-wrap">
+            <div class="link-wrap">
+              <span class="link-title">팀 구성</span>
+              <div class="link-list-wrap">
+                <span>팀명: DriveWise</span>
+                <span>팀원: 박상도, 박민후, 전세계, 한창민</span>
+                <span>소속: 네이버클라우드캠프 AIaaS 8기</span>
+              </div>
+              <span class="link-title">문의사항</span>
+              <div class="link-list-wrap">
+                <span>Email: abcdef@google.com</span>
+                <span>Phone: 010-1234-5678</span>
+              </div>
+            </div>
+            <div class="icons-wrap">
+              <a
+                href="https://github.com/SD-PARK/DriveWise"
+                class="sns"
+                target="_blank"
+              >
+                <img src="./images/icon-github.png" alt="Github 링크" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div id="map"></div>
+    <div id="customInfoWindow" class="custom-info-window"></div>
+
+    <!-- Route -->
+    <div id="route" class="open">
+      <button type="button" id="reload" onclick="initMap()"></button>
+      <!-- <div id="refresh-time"></div> -->
+      <div class="toggle-switch-container">
+        <button id="toggle-switch" class="toggle-switch">행정구역</button>
+      </div>
+      <div class="TCI-realTime-norank">
+        <div class="select-btn-container">
+          <button id="realtime-btn" class="output-btn">실시간 순위</button>
+          <button id="road-info-btn" class="output-btn">도로 정보</button>
+        </div>
+
+        <div class="location-wrap">
+          <input
+            type="text"
+            name="st_loc"
+            id="start-location"
+            maxlength="255"
+            placeholder="출발지 입력"
+          />
+
+          <div class="btn-wrap">
+            <button type="button" id="reset" onclick="resetLocation()">
+              다시입력
+            </button>
+          </div>
+        </div>
+
+        <div class="route-info-wrap">
+          <div class="road-title">
+            <p id="real-time-rank">실시간 도로 순위</p>
+            <p id="selected-road-info">선택 도로 정보출력</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pulling-btn" onclick="toggleRouteBox()">〉</div>
+      <div id="TCI-realTime-rank">
+        <!-- 자바스크립트에 의해 업데이트될 섹션들 -->
+      </div>
+      <div id="road-info"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/cash-dom/dist/cash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzvzFUV2xImGEVaPSI1-ZGaQMei2G9sDQ&libraries=places,marker&callback=initMap&loading=async"
+    ></script>
+    <script src="./js/TCIMap.js"></script>
+    <!-- <script src="./js/test.js"></script> -->
+    <!-- <script src="./js/t.js"></script> -->
+    <script src="./js/header.js"></script>
+  </body>
+</html>
+`

@@ -17,11 +17,11 @@ public class DataFetchingScheduler {
 	@Autowired
 	private PredictionHandler predictionHandler;
 
-	@Scheduled(cron = "0 0/5 * * * ?")
+	@Scheduled(cron = "0 0/1 * * * ?")
 	public void runTasks() {
 		log.info("작업 중");
 		apiFetcherInvoker.invoke();
-		predictionHandler.runPredict();
+		predictionHandler.handling();
 		log.info("작업 완료");
 	}
 }

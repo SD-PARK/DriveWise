@@ -24,7 +24,7 @@ public class LinkRepository implements ILinkRepository {
 	private JdbcTemplate jdbcTemplate;
 	private WKTReader reader = new WKTReader();
 	
-	private RowMapper<LinkDTO> linkRowMapper() {
+	private RowMapper<LinkDTO> LinkRowMapper() {
 		return ((ResultSet rs, int rowNum) -> {
 			LinkDTO link = new LinkDTO();
 			link.setLinkId(rs.getLong("id"));
@@ -52,9 +52,9 @@ public class LinkRepository implements ILinkRepository {
 
 	@Override
 	public LinkDTO getLink(long id) {
-		String sql = "SELECT * FROM links WHERE id = ?";
+		String sql = "SELECT * FROM links l WHERE l.id NOT IN (SELECT id FROM unsupported_links) AND l.id = ?";
 		try {
-			return jdbcTemplate.queryForObject(sql, linkRowMapper(), id);
+			return jdbcTemplate.queryForObject(sql, LinkRowMapper(), id);
 		} catch (EmptyResultDataAccessException e) {
 			log.warn("ID가 {}인 링크를 찾을 수 없습니다.", id);
 			return null;
@@ -66,7 +66,7 @@ public class LinkRepository implements ILinkRepository {
 
 	@Override
 	public List<LinkDTO> getAllLink() {
-		String sql = "SELECT * FROM links";
-		return jdbcTemplate.query(sql, linkRowMapper());
+		String sql = "SELECT * FROM links l WHERE l.id NOT IN (SELECT id FROM unsupported_links)";
+		return jdbcTemplate.query(sql, LinkRowMapper());
 	}
 }

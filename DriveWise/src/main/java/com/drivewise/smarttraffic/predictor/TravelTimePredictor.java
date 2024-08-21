@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 public class TravelTimePredictor {
     private RConnection rConn = null;
 	private static final String rScriptPath = "C:/Users/bit/git/DriveWise/02-Data/02-R/travel_time_prediction.R";
-	
+    
 	@PostConstruct
 	public void init() {
 		try {
@@ -26,7 +26,6 @@ public class TravelTimePredictor {
 		} catch (RserveException e) {
 			log.error("R Connection을 연결하지 못했습니다: " + e.getMessage());
 		}
-		
 	}
 	
 	@PreDestroy

@@ -1,0 +1,32 @@
+@media screen and (min-width: 769px) and (max-width: 1024) {
+    /*intro section - screen(1024이상)*/
+    .intro__content {
+        justify-content: space-around;
+    }
+    .intro__definition-container {
+        margin-left: 20px;
+    }
+    .intro__feature-container {
+        margin-right: 20px;
+    }
+    /*statistic section - screen(770~1024)*/
+    .statistic__chart-container {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+    }
+    .statistic__link {
+        display: flex;
+        flex-direction: row;
+    }
+}
+@media screen and (max-width: 768px) {
+    .intro__content{
+        padding: 10%;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .intro__scroll-indicator {
+        display: none;
+    } 
+}

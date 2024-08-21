@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    background-color: black;
+}
+
+main {
+    width: 100vw;
+    height: 400vh;
+}
+
+section {
+    width: 100vw;
+    height: 100vh;
+}
+
+#tci-main .bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+    cursor: pointer;  
+    color: white;
+    font-size: 1.5vh;
+    letter-spacing: 2px;
+}
+
+.scroll-indicator:hover {
+    transition: letter-spacing 0.5s ease-in-out;
+    letter-spacing: 5px;
+}
+
+.scroll-box {
+    position: relative;
+    width: 24px;
+    height: 50px;
+    margin-top: 10px;
+    border: 1px solid white;
+    border-radius: 12px;
+}
+
+.scroll-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 30px;
+    animation: scroll 2s infinite;
+    background-color: white;
+    border-radius: 2px;
+}
+
+@keyframes scroll {
+    0% {
+        top: 5px;
+        opacity: 1;
+    }
+    50% {
+        top: 15px;
+        opacity: 0;
+    }
+    100% {
+        top: 5px;
+        opacity: 1;
+    }
+}
+
+
+
+
+#tci-main .view-more {
+    align-self: center;
+    margin-top: 5%;
+}
+
+#tci-main .view-more a {
+    width: 200px;
+    border: 2px solid white;
+    border-radius: 40px;
+    padding: 10px 15px 10px 15px;
+    transition: background-color 0.3s ease;
+    color: white;
+    text-align: center;
+    font-weight: lighter;
+    font-size: smaller;
+    text-decoration: none;
+}
+
+#tci-main .view-more a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(10vh);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.section.active section {
+    animation: slideIn 1.5s forwards;
+}
+
+.fp-tooltip {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.fp-nav ul li:hover .fp-tooltip {
+    opacity: 1;
+}

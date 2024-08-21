@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* Header */
+header {
+  z-index: 2;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header > * {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-box {
+  z-index: 3;
+  height: 100%;
+  justify-content: left;
+}
+.logo-box a {
+  height: 65px;
+  position: absolute;
+  top: 20px;
+  left: 70px;
+}
+.logo {
+  padding: 10px;
+  height: 100%;
+  box-sizing: border-box;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.nav {
+  flex: 3;
+  height: 100%;
+}
+.nav-menu {
+  height: 100%;
+  display: flex;
+}
+.nav-menu li {
+  position: relative;
+  padding: 0 40px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.nav-menu li a {
+  text-decoration: none;
+  color: #ec0a0a;
+  line-height: 100px;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+.nav-menu > li::after {
+  content: "";
+  background-color: #3572ef;
+  width: 0;
+  height: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+.nav > .nav-menu > li:hover::after {
+  width: 100%;
+}
+.nav-menu li a:hover {
+  color: #3572ef;
+}
+.nav-menu .sub-menu {
+  z-index: 2;
+  width: 100%;
+  height: 0px;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  display: flex;
+  background-color: #333;
+  opacity: 0;
+  overflow: hidden;
+}
+.sub-menu ul {
+  width: 100%;
+}
+.sub-menu li {
+  height: 60px;
+  padding: 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+.sub-menu li a {
+  line-height: 60px;
+}
+
+.menu-box {
+  height: 100%;
+}
+.menu-btn {
+  z-index: 3;
+  position: fixed;
+  right: 80px;
+  font-size: 32px;
+  color: #000000;
+  cursor: pointer;
+}
+.mobile-nav-wrap {
+  flex: none;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 100%;
+}
+.inner-wrap {
+  max-width: 100%;
+  height: 546px;
+  margin: auto;
+  padding: 0 90px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.inner-wrap > * {
+  height: 100%;
+}
+.mobile-nav {
+  padding: 0 40px;
+}
+.mobile-nav .nav-menu {
+  flex-direction: column;
+}
+.mobile-nav .nav-menu a {
+  font-size: 44px;
+  font-weight: bold;
+  color: #333;
+}
+.info-wrap {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #333;
+  width: 600px;
+  padding: 0 70px;
+}
+.link-wrap {
+  display: block;
+  text-align: right;
+}
+.link-title {
+  position: relative;
+  font-size: 42px;
+  font-weight: bold;
+  color: #333;
+}
+.link-title::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  background-color: #333;
+}
+.link-list-wrap {
+  margin: 20px 0 40px 0;
+  font-size: 17px;
+}
+.link-list-wrap > * {
+  display: block;
+  margin: 5px 0;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+.icons-wrap {
+  text-align: right;
+}
+.icons-wrap a {
+  margin-left: 15px;
+}
+.icons-wrap a,
+.icons-wrap img {
+  width: 45px;
+  height: 45px;
+}
+
+@media screen and (max-width: 1200px) {
+  /* Header */
+  .logo-box a {
+    height: 60px;
+    left: 50px;
+  }
+  .nav-menu > li {
+    padding: 0 30px;
+    font-size: 19px;
+  }
+  .menu-btn {
+    right: 50px;
+  }
+}
+@media screen and (max-width: 990px) {
+  /* Header */
+  header {
+    height: 90px;
+  }
+  .logo-box a {
+    top: 17px;
+    left: 40px;
+  }
+  .nav {
+    display: none;
+  }
+  .inner-wrap {
+    flex-direction: column;
+    margin: -180px 0 0 auto;
+    padding: 0 20px;
+  }
+  .inner-wrap > * {
+    margin: 0;
+    max-height: 380px;
+  }
+  .mobile-nav .nav-menu {
+    text-align: right;
+    margin-bottom: 100px;
+  }
+  .mobile-nav .nav-menu a {
+    font-size: 26px;
+    font-weight: normal;
+    line-height: 60px;
+  }
+  .inner-wrap > .info-wrap {
+    width: 400px;
+  }
+  .link-wrap span {
+    font-size: 16px;
+  }
+  .link-list-wrap {
+    margin: 10px 0 40px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* Header */
+  .logo-box a {
+    left: 20px;
+  }
+  .menu-btn {
+    right: 30px;
+  }
+}

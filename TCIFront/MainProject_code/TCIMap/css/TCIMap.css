@@ -1,0 +1,304 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+/* 크롬, 사파리, 엣지 */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+#map {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.custom-info-window {
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 13px;
+  transform: translate(-50%, -120%);
+  z-index: 100;
+  display: none;
+}
+#reload {
+  display: flex;
+  background: url("../images/reload.png") no-repeat center;
+  background-color: transparent;
+  background-size: 60%;
+  position: absolute;
+  border: none;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+  cursor: pointer;
+}
+.toggle-switch-container {
+  display: flex;
+  background-color: transparent;
+  background-size: 60%;
+  position: absolute;
+  left: 30%;
+  border: none;
+  width: 100px;
+  height: 50px;
+  z-index: 1;
+  cursor: pointer;
+}
+#toggle-switch {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#route {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.85;
+  transition: right 0.5s ease;
+  padding: 20px 20px 0 20px;
+  box-sizing: border-box;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+}
+#route.open {
+  right: 0;
+}
+
+.TCI-realTime-norank {
+  display: flex;
+  height: 50%;
+  flex-direction: column;
+  justify-content: center;
+}
+/*select-btn container*/
+.select-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 10%;
+}
+
+#road-info-btn {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#realtime-btn {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.location-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 160px;
+}
+.location-wrap > input {
+  height: 40px;
+  padding-left: 15px;
+  transition: all 0.3s ease;
+  border: 1px solid #333;
+  font-size: 14px;
+}
+.location-wrap > input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+  z-index: 1;
+}
+#start-location {
+  border-radius: 7px;
+}
+
+.btn-wrap {
+  display: flex;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+.btn-wrap > button {
+  background-color: #fff;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  padding: 5px 10px;
+  min-width: 70px;
+  min-height: 35px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn-wrap > button:hover {
+  background-color: rgba(0, 123, 255, 0.6);
+  color: #fff;
+}
+
+#routing {
+  float: right;
+}
+.route-info-wrap {
+  width: 100%;
+  border-bottom: 1px solid #aaa;
+}
+.route-info-wrap > p {
+  margin: 0;
+}
+/*------------------------------------------------*/
+.pulling-btn {
+  width: 25px;
+  height: 50px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: -25px;
+  cursor: pointer;
+  border-radius: 10px 0 0 10px;
+  box-shadow: -3px 2px 3px rgba(0, 0, 0, 0.4);
+  line-height: 50px;
+  text-align: right;
+  font-weight: bold;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.pulling-btn:hover {
+  background-color: rgba(0, 123, 255, 0.6);
+  color: #fff;
+}
+/*------------------------------------------------*/
+
+#TCI-realTime-rank {
+  flex-direction: column;
+  border: 5px solid #333;
+  height: 90%;
+  overflow-y: scroll;
+  margin-bottom: 10%;
+}
+.rank-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30vh;
+  border-bottom: 2px solid #aaa;
+  background-color: transparent;
+}
+.rank-index {
+  display: flex;
+  margin-right: 30px;
+  background: linear-gradient(to bottom right, blue, pink);
+  font-size: 2em;
+  width: 60px;
+  height: 50px;
+  margin: 20px 20px;
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  text-align: center;
+  text-shadow: 1px 1px #aaa;
+  box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.5);
+  border: 3px solid #333;
+  border-radius: 50%;
+}
+.rank-road-info {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.rank-road-name {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 60px;
+  align-items: center;
+}
+.road-name {
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.road-tci {
+  display: flex;
+  font-size: 2rem;
+  font-weight: 900;
+  text-shadow: 3px 3px 1px gray;
+  box-shadow: 5px 5px 5px #4e2ba0;
+}
+/*------------------------------------------------*/
+
+#road-info {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #333;
+  gap: 80px;
+  height: 90%;
+  overflow-y: scroll;
+  margin-bottom: 10%;
+  width: 100%;
+
+  background-color: #ea1243;
+}
+.road-infos {
+  display: flex;
+  flex-direction: row;
+  background-color: #007bff;
+  justify-content: space-around;
+  font-size: 2em;
+  width: 100%;
+  font-weight: 700;
+  color: black;
+  border-bottom: 2px solid #aaa;
+}
+
+/*------------------------------------------------*/
+
+/* InfoWindow 스타일 */
+.gm-style-iw-chr {
+  display: none;
+}
+.info-window {
+  background-color: #ffffff;
+  opacity: 0.7;
+  border: 2px solid #810fcb;
+  padding: 10px;
+  margin: 10px 10px 10px 0;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  color: #333333;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  width: 100px;
+}
+
+.info-window-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #810fcb;
+  background-color: white;
+  text-align: center;
+}

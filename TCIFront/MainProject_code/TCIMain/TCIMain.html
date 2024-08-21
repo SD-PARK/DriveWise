@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>교통혼잡지수</title>
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/route.css">
+  <link rel="stylesheet" href="css/TCIMain.css">
+  <link rel="stylesheet" href="css/media.css">
+  <link rel="stylesheet" href="css/initial.css">
+  <link rel="stylesheet" href="css/intro.css">
+  <link rel="stylesheet" href="css/benefit.css">
+  <link rel="stylesheet" href="css/statistic.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Red+Hat+Display:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Main content -->
+<main id="tci-main">
+  <!-- Initial section -->
+  <div class="section">
+    <section class="initial">
+      <div class="initial-content">
+        <svg id="demo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <defs>
+            <clipPath id="theClipPath">
+              <rect id="theSquare" x="0" y="50" width="100" height="0" fill="red" />
+            </clipPath>
+          </defs>
+          <line id="target1" x1="0" y1="50" x2="0" y2="50" stroke-width="1" stroke="#fff" />
+          <line id="target2" x1="0" y1="50" x2="0" y2="50" stroke-width="1" stroke="#fff" />
+          <g id="clipPathReveal" clip-path="url(#theClipPath)">
+            <text transform="translate(50 50)" text-anchor="middle" >Traffic Congestion Index</text>
+          </g>
+        </svg>
+      </div>
+      <div class="scroll-indicator">
+        <p>Scroll</p>
+        <div class="scroll-box">
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Intro section -->
+  <div class="section">
+    <section class="intro">
+      <div class="bg">
+        <img src="./images/TCIMain-Image-Traffic_jam.jpg" alt="Background Image">
+        <div class="overlay"></div>
+      </div>
+      <div class="intro__content">
+        <div class="intro__definition-container" id="definition">
+          <h2 class="intro__title">교통혼잡지수란?</h2>
+          <p class="intro__eng-version">Traffic Congestion Index, TCI</p>
+          <p class="intro__description">도로 네트워크의 혼잡도를 평가하고 실시간으로 모니터링하는 지수</p>
+        </div>
+        <div class="intro__feature-container">
+          <div class="intro__feature border-top" id="feature1">
+            <span class="intro__no">01</span>
+            <p class="intro__feature-desc">교통혼잡지수를 실시간 정보를 바탕으로 산출 후 지도에 가시화</p>
+          </div>
+          <div class="intro__feature" id="feature2">
+            <span class="intro__no">02</span>
+            <p class="intro__feature-desc">도로 및 행정구역별 구분에 따른 교통혼잡지수 실시간 수치 제공</p>
+          </div>
+          <div class="intro__feature" id="feature3">
+            <span class="intro__no">03</span>
+            <p class="intro__feature-desc">실시간 교통혼잡지수에 따른 구분별 순위 제공</p>
+          </div>
+          <div class="view-more" id="intro__view-more">
+            <a href="#">VIEW MORE</a>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <p>Scroll</p>
+        <div class="scroll-box">
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Statistic section -->
+  <div class="section">
+    <section class="statistic">
+      <div class="statistic__content">
+        <div class="statistic__chart-container">
+          <div class="statistic__chart-menu">
+            <button class="statistic__menu-item selected" data-index="0">실시간 제주도 전역 교통혼잡지수</button>
+            <button class="statistic__menu-item" data-index="1">실시간 도로별 교통혼잡지수</button>
+            <button class="statistic__menu-item" data-index="2">실시간 행정구역별 교통혼잡지수</button>
+          </div>
+          <div class="statistic__chart">
+            <div class="statistic__carousel">
+              <canvas class="statistic__traffic-chart" id="statistic__traffic-chart--1"></canvas>
+              <canvas class="statistic__traffic-chart" id="statistic__traffic-chart--2"></canvas>
+              <canvas class="statistic__traffic-chart" id="statistic__traffic-chart--3"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="statistic__source-container">
+          <h2>활용 데이터 출처</h2>
+          <div class="statistic__link-container">
+            <div class="wrapper">
+              <div class="marquee">
+                <div class="marquee__group">
+                  <img src="./images/TCIMain-Image-Jeju.png" alt="Jeju Source">
+                  <img src="./images/TCIMain-Image-KMA.png" alt="KMA Source">
+                  <img src="./images/TCIMain-Image-NTIS.png" alt="NTIS Source">
+                  <img src="./images/TCIMain-Image-View_T.png" alt="View T Source">
+                  <img src="./images/TCIMain-Image-Naver_Cloud_Platform.png" alt="CloudPlatform">
+                  <img src="./images/TCIMain-Image-Open_data_portal.png" alt="Open Data Portal">
+                </div>
+                <div aria-hidden="true" class="marquee__group">
+                  <img src="./images/TCIMain-Image-Jeju.png" alt="Jeju Source">
+                  <img src="./images/TCIMain-Image-KMA.png" alt="KMA Source">
+                  <img src="./images/TCIMain-Image-NTIS.png" alt="NTIS Source">
+                  <img src="./images/TCIMain-Image-View_T.png" alt="View T Source">
+                  <img src="./images/TCIMain-Image-Naver_Cloud_Platform.png" alt="CloudPlatform">
+                  <img src="./images/TCIMain-Image-Open_data_portal.png" alt="Open Data Portal">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Benefit section -->
+  <div class="section">
+    <section class="benefit">
+      <div class="bg">
+        <img id="background-image" class="background-image" src="" alt="Background Image">
+        <div class="overlay"></div>
+      </div>
+      <div class="benefit__content">
+        <h2 id="benefits__title"></h2>
+        <p id="benefits__description"></p>
+        <div class="benefit__category-container">
+          <button class="benefit__category selected" id="benefit__category--1" data-title="중요성" data-description="여기에 중요성에 대한 설명을 추가하십시오." data-image="images/TCIMain-Image-important.jpg">
+            <img src="images/TCIMain-Image-Importance.png" alt="Importance Icon">
+            <span>필요성</span>
+          </button>
+          <button class="benefit__category" id="benefit__category--2" data-title="기대효과" data-description="여기에 기대효과에 대한 설명을 추가하십시오." data-image="images/TCIMain-Image-Effect.jpg">
+            <img src="images/TCIMain-Image-Effect.png" alt="Effect Icon">
+            <span>기대효과</span>
+          </button>
+          <button class="benefit__category" id="benefit__category--3" data-title="핵심기술" data-description="여기에 핵심기술에 대한 설명을 추가하십시오." data-image="images/TCIMain-Image-Core_tech.jpg">
+            <img src="images/TCIMain-Image-Core_tech.png" alt="Core Tech Icon">
+            <span>핵심기술</span>
+          </button>
+          <button class="benefit__category" id="benefit__category--4" data-title="확장가능성" data-description="여기에 확장가능성에 대한 설명을 추가하십시오." data-image="images/TCIMain-Image-Extensibility.jpg">
+            <img src="images/TCIMain-Image-Extensibility.png" alt="Extensibility Icon">
+            <span>확장가능성</span>
+          </button>
+        </div>
+        <div class="view-more">
+          <a href="#">VIEW MORE</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- External scripts -->
+<script src="https://cdn.jsdelivr.net/npm/cash-dom/dist/cash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<!-- Local scripts -->
+<script src="js/header.js"></script>
+<script src="js/route.js"></script>
+<script src="js/scroll.js"></script>
+<script src="js/benefit.js"></script>
+<script src="js/statistic.js"></script>
+<script src="js/initial.js"></script>
+
+<script>
+  new fullpage('#tci-main', {
+    autoScrolling: true,
+    navigation: true,
+    navigationPosition: 'right',
+    navigationTooltips: ['소개페이지', '교통혼잡지수란?', '제주도 교통혼잡지수', '상세설명'],
+    showActiveTooltip: false,
+    slidesNavigation: true,
+  });
+
+  AOS.init();
+</script>
+</body>
+</html>

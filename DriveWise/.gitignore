@@ -8,3 +8,5 @@
 
 # DB Settings (Temporary)
 src/main/resources/database/
+
+src/main/resources/application.properties

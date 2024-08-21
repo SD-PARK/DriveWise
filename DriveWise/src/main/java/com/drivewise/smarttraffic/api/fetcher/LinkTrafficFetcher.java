@@ -1,11 +1,12 @@
-package com.drivewise.smarttraffic.fetcher;
+package com.drivewise.smarttraffic.api.fetcher;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.drivewise.smarttraffic.dto.LinkTrafficDTO;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.drivewise.smarttraffic.repository.ILinkTrafficRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -14,23 +15,27 @@ import lombok.extern.slf4j.Slf4j;
 public class LinkTrafficFetcher implements IAPIFetcher<LinkTrafficDTO> {
 	@Autowired
 	private RestTemplate restTemplate;
+	@Autowired
+	private ILinkTrafficRepository linkTrafficRepository;
 	
-    private ObjectMapper objectMapper;
-    
-    public LinkTrafficFetcher() {
-    	this.objectMapper = new ObjectMapper();
-    }
+	@Value("${jeju.its.api.key}")
+	private String apiKey;
+    private final static String BASE_URL = "http://api.jejuits.go.kr/api/getFrafficInfo";
 	
 	@Override
 	public LinkTrafficDTO fetch() {
-		String url = "http://api.jejuits.go.kr/api/getFrafficInfo?code=860651";
 		LinkTrafficDTO result = null;
 		try {
-            String response = restTemplate.getForObject(url, String.class);
-            result = objectMapper.readValue(response, LinkTrafficDTO.class);
+			String urlWithData = String.format("%s?code=%s", BASE_URL, apiKey);
+			result = restTemplate.getForObject(urlWithData, LinkTrafficDTO.class);
         } catch (Exception e) {
-            log.error("API 요청 중 오류 발생", e); // 예외 전체를 로그에 기록
+            log.error("API 요청 중 오류 발생", e.getMessage());
         }
 		return result;
+	}
+	
+	@Override
+	public void save(LinkTrafficDTO dto) {
+		linkTrafficRepository.createLinkTraffics(dto);
 	}
 }

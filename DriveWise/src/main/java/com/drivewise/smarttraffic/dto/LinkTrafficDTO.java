@@ -1,7 +1,10 @@
 package com.drivewise.smarttraffic.dto;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Getter;
@@ -22,17 +25,21 @@ public class LinkTrafficDTO {
     public static class TrafficInfo {
         @JsonProperty("link_id")
         private String linkId;
-        
+
         @JsonProperty("prcn_dt")
-        private String prcnDt;
+        @JsonFormat(pattern = "yyyyMMddHHmmss")
+        private Timestamp dateTime;
+
+        @JsonProperty("tfvl")
+        private int trafficVolume;
         
-        private int tfvl;
-        private int sped;
+        @JsonProperty("sped")
+        private int speed;
         
         @JsonProperty("ocpy_rate")
-        private int ocpyRate;
+        private int occupancy;
         
         @JsonProperty("trvl_hh")
-        private int trvlHh;
+        private int travelTime;
     }
 }

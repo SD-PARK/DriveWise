@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.drivewise.smarttraffic.dto.CoordinatesDTO;
 import com.drivewise.smarttraffic.dto.RouteDTO;
-import com.drivewise.smarttraffic.dto.RouteDTOSerializer;
+import com.drivewise.smarttraffic.dto.serializer.RouteDTOSerializer;
 import com.drivewise.smarttraffic.service.IRouteService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

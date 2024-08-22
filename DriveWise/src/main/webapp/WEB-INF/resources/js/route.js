@@ -24,8 +24,14 @@ function pullingRoute() {
 
 // 도로 기본 스타일
 const roadStyle = {
+  strokeColor: "#007BFF",
+  strokeWeight: 7,
+  // strokePattern: [
+  //   { icon: { path: google.maps.SymbolPath.CIRCLE() }, repeat: "10px" },
+  // ],
+};
+const overRoadStyle = {
   strokeColor: "blue",
-  strokeWeight: 3,
 };
 
 // 도로 정보 내용
@@ -36,9 +42,14 @@ function InfoWindowInnerHTML(event) {
   const map = new Map();
 
   const roadName = event.feature.getProperty("roadName");
-  if (roadName) map.set("도로명", roadName);
-  map.set("길이", event.feature.getProperty("length").toFixed(2) + "km");
-  map.set("제한속도", event.feature.getProperty("maxSpeed") + "km/h");
+  const length = event.feature.getProperty("length");
+  const time = event.feature.getProperty("time");
+  const maxSpeed = event.feature.getProperty("maxSpeed");
+
+  if (roadName != null) map.set("도로명", roadName);
+  if (length != null) map.set("길이", length.toFixed(2) + "m");
+  if (time != null) map.set("예상 통행시간", (time / 60.0).toFixed(1) + "분");
+  if (maxSpeed != null) map.set("제한속도", maxSpeed + "km/h");
 
   for (let [key, value] of map) {
     result += key + ": " + value + "<br>";
@@ -120,10 +131,7 @@ function infoWindowEvents() {
     customInfoWindow.innerHTML = InfoWindowInnerHTML(event);
     gsap.to(customInfoWindow, { display: "block", opacity: 1, duration: 0.2 });
 
-    map.data.overrideStyle(event.feature, {
-      strokeColor: "blue",
-      strokeWeight: 5,
-    });
+    map.data.overrideStyle(event.feature, overRoadStyle);
 
     updateInfoWindowPosition(event);
   });

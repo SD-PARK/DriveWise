@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class IndicatorDTO {
-	long linkId;
-	double indicator;
+	private long linkId;
+	private double indicator;
 }

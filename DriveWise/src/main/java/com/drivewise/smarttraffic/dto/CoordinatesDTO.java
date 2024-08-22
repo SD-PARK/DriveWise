@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class CoordinatesDTO {
-	double startLat, startLng, endLat, endLng;
+	private double startLat, startLng, endLat, endLng;
 }

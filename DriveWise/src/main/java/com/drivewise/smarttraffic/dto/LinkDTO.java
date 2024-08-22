@@ -6,10 +6,10 @@ import lombok.Data;
 
 @Data
 public class LinkDTO {
-	long linkId, startNodeId, endNodeId;
-	int lanes, roadRankCode, roadTypeCode, maxSpeedLimit, awsId, coordinatesCount;
-	String name;
-	boolean roadUse;
-	double length;
-	MultiLineString geometry;
+	private long linkId, startNodeId, endNodeId;
+	private int lanes, roadRankCode, roadTypeCode, maxSpeedLimit, awsId, coordinatesCount;
+	private String name;
+	private boolean roadUse;
+	private double length;
+	private MultiLineString geometry;
 }

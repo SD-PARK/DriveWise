@@ -6,8 +6,8 @@ import lombok.Data;
 
 @Data
 public class NodeDTO {
-	long nodeId, districtId;
-	int nodeTypeCode;
-	String name;
-	Coordinate coordinate;
+	private long nodeId, districtId;
+	private int nodeTypeCode;
+	private String name;
+	private Coordinate coordinate;
 }

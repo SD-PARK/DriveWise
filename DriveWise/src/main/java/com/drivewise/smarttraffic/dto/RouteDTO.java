@@ -10,8 +10,8 @@ import lombok.Data;
 @Data
 @JsonSerialize(using = RouteDTOSerializer.class)
 public class RouteDTO {
-	String roadName;
-	int tci, tsi, time, maxSpeed;
-	float length;
-	MultiLineString geometry;
+	private String roadName;
+	private int tci, tsi, time, maxSpeed;
+	private float length;
+	private MultiLineString geometry;
 }

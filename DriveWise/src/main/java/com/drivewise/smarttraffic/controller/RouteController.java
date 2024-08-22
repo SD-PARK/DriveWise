@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 @Controller
 public class RouteController {
 	@Autowired
-	IRouteService routeService;
+	private IRouteService routeService;
 	
 	@GetMapping("/route")
 	public void getRoutePage() {}

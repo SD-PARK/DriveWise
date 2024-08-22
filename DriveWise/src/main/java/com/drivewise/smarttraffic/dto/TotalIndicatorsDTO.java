@@ -6,8 +6,8 @@ import lombok.Data;
 
 @Data
 public class TotalIndicatorsDTO {
-	long linkId;
-	Double tci, tsi;
-	Integer ptt, rei;
+	private long linkId;
+	private Double tci, tsi;
+	private Integer ptt, rei;
     private Timestamp dateTime;
 }

@@ -79,6 +79,7 @@ public class PredictionHandler {
 		PredictInputDTO result = new PredictInputDTO();
 		
 		int hour = trafficInfo.getDateTime().toLocalDateTime().getHour();
+		System.out.println(hour);
 		result.setHour(hour);
 		result.setAverageSpeed(trafficInfo.getSpeed());
 		result.setLanes(linkInfo.getLanes());

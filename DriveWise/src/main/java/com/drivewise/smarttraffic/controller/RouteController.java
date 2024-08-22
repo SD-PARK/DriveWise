@@ -29,22 +29,25 @@ public class RouteController {
 	
 	@GetMapping(value="/route/directions", produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> getRoute(CoordinatesDTO coor) {
-		List<RouteDTO> routeList = routeService.findOptimalPath(coor);
-
-		ObjectMapper mapper = new ObjectMapper();
-        SimpleModule module = new SimpleModule();
-        module.addSerializer(RouteDTO.class, new RouteDTOSerializer());
-        mapper.registerModule(module);
-        
-        Map<String, Object> featureCollection = new HashMap<>();
-        featureCollection.put("type", "FeatureCollection");
-        featureCollection.put("features", routeList);
-
         try {
+			List<RouteDTO> routeList = routeService.findOptimalPath(coor);
+	
+			ObjectMapper mapper = new ObjectMapper();
+	        SimpleModule module = new SimpleModule();
+	        module.addSerializer(RouteDTO.class, new RouteDTOSerializer());
+	        mapper.registerModule(module);
+	        
+	        Map<String, Object> featureCollection = new HashMap<>();
+	        featureCollection.put("type", "FeatureCollection");
+	        featureCollection.put("features", routeList);
+
             String result = mapper.writeValueAsString(featureCollection);
             return ResponseEntity.ok()
             		.contentType(MediaType.APPLICATION_JSON_UTF8)
             		.body(result);
+        } catch (IllegalArgumentException e) {
+        	return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("{\"error\":\"" + e.getMessage() + "\"}");
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)

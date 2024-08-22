@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.drivewise.smarttraffic.dto.CoordinatesDTO;
-import com.drivewise.smarttraffic.dto.IndicatorDTO;
 import com.drivewise.smarttraffic.dto.LinkDTO;
 import com.drivewise.smarttraffic.dto.NodeDTO;
 import com.drivewise.smarttraffic.dto.RouteDTO;
@@ -72,21 +71,30 @@ public class RouteService implements IRouteService {
 		if (startNodeId == endNodeId) throw new IllegalArgumentException("경로 간 거리가 너무 가깝습니다.");
 
 		getRecentREIs(); // 5분마다 첫 요청하는 사용자는 검색 속도가 느리다고 느낄 듯
+		
 		List<Long> path = getRouteLinkIds(startNodeId, endNodeId);
 		for (long linkId: path) {
 			LinkDTO link = linkMap.get(linkId);
-			RouteDTO route = new RouteDTO();
-
-			route.setRoadName(link.getName());
-			// tci, tsi 추가 예정
-			route.setTime(indicatorsMap.get(linkId).getPtt());
-			route.setMaxSpeed(link.getMaxSpeedLimit());
-			route.setLength((float) link.getLength());
-			route.setGeometry(link.getGeometry());
+			RouteDTO route = createRouteDTO(link);
 			result.add(route);
 		}
 		
         return result;
+	}
+	
+	public RouteDTO createRouteDTO(LinkDTO link) {
+		RouteDTO result = new RouteDTO();
+		TotalIndicatorsDTO indicators = indicatorsMap.get(link.getLinkId());
+
+		result.setRoadName(link.getName());
+		result.setTci(indicators.getTci());
+		result.setTsi(indicators.getTsi());
+		result.setTime(indicators.getPtt());
+		result.setMaxSpeed(link.getMaxSpeedLimit());
+		result.setLength((float) link.getLength());
+		result.setGeometry(link.getGeometry());
+		
+		return result;
 	}
 
 	@Override

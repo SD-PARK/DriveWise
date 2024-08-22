@@ -82,7 +82,24 @@ public class IndicatorRepository implements IIndicatorRepository {
 
 	@Override
 	public List<TotalIndicatorsDTO> getRecentIndicators() {
-		return null;
+		List<TotalIndicatorsDTO> result;
+		String sql = "SELECT date_time, link_id, tci, tsi, predicted_travel_time, rei " +
+					 "FROM (SELECT date_time, link_id, tci, tsi, predicted_travel_time, rei, " +
+					 "		ROW_NUMBER() OVER (PARTITION BY link_id ORDER BY date_time DESC) AS rn " +
+					 "		FROM link_indicators)" +
+					 "WHERE rn = 1";
+		
+		result = jdbcTemplate.query(sql, ((ResultSet rs, int rowNum) -> {
+			TotalIndicatorsDTO total = new TotalIndicatorsDTO();
+			total.setLinkId(rs.getLong("link_id"));
+			total.setTci(rs.getDouble("tci"));
+			total.setTsi(rs.getDouble("tsi"));
+			total.setPtt(rs.getInt("predicted_travel_time"));
+			total.setRei(rs.getInt("rei"));
+			return total;
+		}));
+		
+		return result;
 	}
 
 }

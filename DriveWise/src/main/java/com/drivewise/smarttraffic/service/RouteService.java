@@ -23,6 +23,7 @@ import com.drivewise.smarttraffic.dto.IndicatorDTO;
 import com.drivewise.smarttraffic.dto.LinkDTO;
 import com.drivewise.smarttraffic.dto.NodeDTO;
 import com.drivewise.smarttraffic.dto.RouteDTO;
+import com.drivewise.smarttraffic.dto.TotalIndicatorsDTO;
 import com.drivewise.smarttraffic.repository.IIndicatorRepository;
 import com.drivewise.smarttraffic.store.LinkStore;
 import com.drivewise.smarttraffic.store.NodeStore;
@@ -36,7 +37,7 @@ public class RouteService implements IRouteService {
 	@Autowired
 	private IIndicatorRepository indicatorRepository;
 	
-	private Map<Long, IndicatorDTO> reiMap;
+	private Map<Long, TotalIndicatorsDTO> indicatorsMap = null;
 	private LocalDateTime lastExecutionTime;
 	private GeometryFactory geometryFactory = JTSFactoryFinder.getGeometryFactory();
 
@@ -46,17 +47,17 @@ public class RouteService implements IRouteService {
 				.truncatedTo(ChronoUnit.MINUTES)
 				.withMinute((LocalDateTime.now().getMinute() / 5) * 5);
 		
-		if (
+		if ( // 마지막 조회 시간으로부터 5분 이상 지났으면 신규 REI 조회
 			lastExecutionTime != null &&
 			ChronoUnit.MINUTES.between(lastExecutionTime, currentExecutionTime) < 5
 		) {
             return;
         }
 		
-		reiMap.clear();
-		List<IndicatorDTO> reiList = indicatorRepository.getRecentPTT(); // REI 도출식 완성 전까지 PTT로 대체
-		reiMap = reiList.stream()
-				.collect(Collectors.toMap(IndicatorDTO::getLinkId, Function.identity()));
+		if (indicatorsMap != null) indicatorsMap.clear();
+		List<TotalIndicatorsDTO> indicatorsList = indicatorRepository.getRecentIndicators(); // REI 도출식 완성 전까지 PTT로 대체
+		indicatorsMap = indicatorsList.stream()
+				.collect(Collectors.toMap(TotalIndicatorsDTO::getLinkId, Function.identity()));
 		
 		lastExecutionTime = currentExecutionTime;
 	}
@@ -77,6 +78,8 @@ public class RouteService implements IRouteService {
 			RouteDTO route = new RouteDTO();
 
 			route.setRoadName(link.getName());
+			// tci, tsi 추가 예정
+			route.setTime(indicatorsMap.get(linkId).getPtt());
 			route.setMaxSpeed(link.getMaxSpeedLimit());
 			route.setLength((float) link.getLength());
 			route.setGeometry(link.getGeometry());
@@ -134,7 +137,7 @@ public class RouteService implements IRouteService {
                 if (neighborLink.getStartNodeId() == currentNodeId) {
                     long neighborNodeId = neighborLink.getEndNodeId();
                     long neighborLinkId = neighborLink.getLinkId();
-                    double newDist = distances.get(currentNodeId) + reiMap.get(neighborLinkId).getIndicator();
+                    double newDist = distances.get(currentNodeId) + indicatorsMap.get(neighborLinkId).getPtt();
 
                     if (newDist < distances.get(neighborNodeId)) {
                         distances.put(neighborNodeId, newDist);

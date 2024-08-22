@@ -53,8 +53,7 @@ public class TravelTimePredictor {
 	            
             result = prediction.asInteger();
             
-            if (result > 100) result = 100;
-            else if (result < 0) result = 0;
+            if (result < 0) result = 0;
 		} catch (Exception e) {
 			log.error("도로 통행시간 예측 실패: ", e.getMessage());
 		}

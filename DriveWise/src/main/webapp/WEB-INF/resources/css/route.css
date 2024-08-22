@@ -35,7 +35,7 @@ nav > .nav-menu > li:nth-child(3)::after {
   background-color: #fff;
   opacity: 0.85;
   transition: right 0.5s ease;
-  padding-top: 100px;
+  padding-top: 120px;
   box-sizing: border-box;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
 }
@@ -90,13 +90,50 @@ nav > .nav-menu > li:nth-child(3)::after {
 #routing {
   float: right;
 }
+
+#route {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.route-info-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
 .route-total-wrap {
   width: 100%;
   padding: 0 30px 20px 30px;
-  border-bottom: 1px solid #aaa;
+  border-bottom: 2px solid #999;
+  box-sizing: border-box;
+  box-shadow: 3px 0px 6px rgba(0, 0, 0, 0.4);
 }
 .route-total-wrap > p {
   margin: 0;
+}
+.routes-wrap {
+  flex: 1;
+  overflow-y: scroll;
+}
+.route-wrap {
+  width: 100%;
+  padding: 20px 30px;
+  border-bottom: 1px solid #aaa;
+  box-sizing: border-box;
+}
+.route-wrap:nth-child(even) {
+  background-color: #eee;
+}
+.route-wrap > .road-name {
+  font-size: 19px;
+  font-weight: 500;
+}
+.route-wrap > .time {
+  font-size: 15px;
+}
+.route-wrap > .length {
+  font-size: 16px;
 }
 #route-time {
   font-size: 27px;

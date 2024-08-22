@@ -91,6 +91,7 @@ function initMap() {
 function printRoadMap(geoJson) {
   if (!map) return;
 
+  clearRoadMap();
   map.data.addGeoJson(geoJson);
   map.data.setStyle((feature) => {
     // 혼잡지수, 경로평가지수에 따른 Style 지정할 예정
@@ -106,6 +107,13 @@ function printRoadMap(geoJson) {
   });
 
   infoWindowEvents();
+}
+
+// 도로 지우기
+function clearRoadMap() {
+  if (!map) return;
+
+  map.data.forEach((feature) => map.data.remove(feature));
 }
 
 // 도로 정보 출력
@@ -235,27 +243,9 @@ function clearMarkers(type = "both") {
 // 길 안내
 async function routing() {
   if (!startLocation || !endLocation) {
-    console.log("location not selected.");
+    alert("출발지 또는 목적지를 선택해야 합니다.");
     return;
   }
-  // const loc = {
-  //     start: {
-  //         name: startLocation.name,
-  //         address: startLocation.formatted_address,
-  //         coordinates: {
-  //             lat: startLocation.geometry.location.lat(),
-  //             lng: startLocation.geometry.location.lng()
-  //         }
-  //     },
-  //     end: {
-  //         name: endLocation.name,
-  //         address: endLocation.formatted_address,
-  //         coordinates: {
-  //             lat: endLocation.geometry.location.lat(),
-  //             lng: endLocation.geometry.location.lng()
-  //         }
-  //     }
-  // };
 
   const url = "/route/directions";
   const data = {
@@ -265,7 +255,6 @@ async function routing() {
     endLat: endLocation.geometry.location.lat(),
   };
 
-  console.log(url + "?" + new URLSearchParams(data));
   fetch(url + "?" + new URLSearchParams(data), {
     method: "GET",
     mode: "cors",
@@ -276,8 +265,114 @@ async function routing() {
     referrerPolicy: "no-referrer",
   })
     .then((response) => response.json())
-    .then((data) => printRoadMap(data))
+    .then((data) => {
+      printRoadMap(data);
+      const routeTotalInfoHTML = createRouteTotalInfoWrap(data);
+      const routeInfoHTML = createRouteInfoWrap(data);
+
+      // 'route-info-wrap' 요소 업데이트
+      const routeInfoWrap = document.querySelector(".route-info-wrap");
+      if (routeInfoWrap)
+        routeInfoWrap.innerHTML = routeTotalInfoHTML + routeInfoHTML;
+    })
     .catch((error) => console.error("Error:", error));
+}
+
+function createRouteTotalInfoWrap(path) {
+  if (!path?.features) return "";
+
+  const { totalLength, totalTime } = calculateTotalLengthAndTime(path.features);
+  const arrivalTime = calculateArrivalTime(totalTime);
+
+  return createRouteTotalInfoHTML(totalLength, totalTime, arrivalTime);
+}
+
+function calculateTotalLengthAndTime(features) {
+  return features.reduce(
+    (acc, feature) => {
+      const info = feature?.properties;
+      if (info) {
+        acc.totalLength += info.length || 0;
+        acc.totalTime += info.time || 0;
+      }
+      return acc;
+    },
+    { totalLength: 0, totalTime: 0 }
+  );
+}
+
+function calculateArrivalTime(totalTime) {
+  const now = new Date();
+  const arrivalTime = new Date(now.getTime() + totalTime * 1000);
+
+  const hours = arrivalTime.getHours() % 12 || 12;
+  const minutes = arrivalTime.getMinutes().toString().padStart(2, "0");
+  const period = arrivalTime.getHours() >= 12 ? "오후" : "오전";
+
+  return `${period} ${hours}:${minutes}`;
+}
+
+function createRouteTotalInfoHTML(totalLength, totalTime, arrivalTime) {
+  return `
+    <div class="route-total-wrap">
+      <p>
+        <span id="route-time">${Math.round(totalTime / 60.0)}</span>분 |
+        <span id="route-length">${(totalLength / 1000).toFixed(2)}</span>km
+      </p>
+      <p>
+        <span id="route-arrival-time">${arrivalTime}</span> 도착 예정
+      </p>
+    </div>`;
+}
+
+function createRouteInfoWrap(path) {
+  if (!path?.features) return "";
+
+  const groupedFeatures = path.features.reduce((acc, feature) => {
+    const roadName = feature.properties.roadName;
+
+    if (acc.length > 0 && acc[acc.length - 1].roadName === roadName) {
+      acc[acc.length - 1].features.push(feature);
+    } else {
+      acc.push({
+        roadName: roadName,
+        features: [feature],
+      });
+    }
+
+    return acc;
+  }, []);
+
+  const routeInfoHTML = groupedFeatures
+    .map((group) => {
+      const totalLength = group.features.reduce(
+        (sum, f) => sum + f.properties.length,
+        0
+      );
+      const totalTime = group.features.reduce(
+        (sum, f) => sum + f.properties.time,
+        0
+      );
+      const firstFeature = group.features[0].properties;
+
+      return `
+        <div class="route-wrap">
+          <span class="road-name">${group.roadName}</span>
+          <span class="time">약 ${totalTime}초 소요</span>
+          <br /><span class="length">${totalLength.toFixed(2)}m 이동</span>
+        </div>`;
+    })
+    .join("");
+
+  return `
+    <div class="routes-wrap">
+      ${routeInfoHTML}
+    </div>`;
+}
+
+function clearRouteInfoWrap() {
+  const routeInfoWrap = document.querySelector(".route-info-wrap");
+  if (routeInfoWrap) routeInfoWrap.innerHTML = "";
 }
 
 // 장소 초기화
@@ -287,4 +382,6 @@ function resetLocation() {
   endLocation = null;
   $("#start-location").val("");
   $("#end-location").val("");
+  clearRoadMap(); // 도로 지우기
+  clearRouteInfoWrap(); // 경로 정보 지우기
 }

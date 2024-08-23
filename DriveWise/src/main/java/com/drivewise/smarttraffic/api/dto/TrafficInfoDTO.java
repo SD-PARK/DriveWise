@@ -1,4 +1,4 @@
-package com.drivewise.smarttraffic.dto;
+package com.drivewise.smarttraffic.api.dto;
 
 import java.sql.Timestamp;
 
@@ -15,7 +15,7 @@ public class TrafficInfoDTO {
     private long linkId;
 
     @JsonProperty("prcn_dt")
-    @JsonFormat(pattern = "yyyyMMddHHmmss")
+    @JsonFormat(pattern = "yyyyMMddHHmmss", timezone = "Asia/Seoul")
     private Timestamp dateTime;
 
     @JsonProperty("tfvl")

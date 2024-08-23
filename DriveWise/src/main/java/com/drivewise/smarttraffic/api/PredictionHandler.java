@@ -9,10 +9,10 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.drivewise.smarttraffic.api.dto.TrafficInfoDTO;
 import com.drivewise.smarttraffic.dto.LinkDTO;
 import com.drivewise.smarttraffic.dto.PredictInputDTO;
 import com.drivewise.smarttraffic.dto.TotalIndicatorsDTO;
-import com.drivewise.smarttraffic.dto.TrafficInfoDTO;
 import com.drivewise.smarttraffic.predictor.TravelTimePredictor;
 import com.drivewise.smarttraffic.repository.IIndicatorRepository;
 import com.drivewise.smarttraffic.repository.ILinkTrafficRepository;
@@ -55,7 +55,6 @@ public class PredictionHandler {
 			
 			TrafficInfoDTO trafficInfo = trafficInfoMap.get(linkId);
 			if (trafficInfo == null) {
-				System.out.println(linkId);
 				continue;
 			}
 			
@@ -79,7 +78,6 @@ public class PredictionHandler {
 		PredictInputDTO result = new PredictInputDTO();
 		
 		int hour = trafficInfo.getDateTime().toLocalDateTime().getHour();
-		System.out.println(hour);
 		result.setHour(hour);
 		result.setAverageSpeed(trafficInfo.getSpeed());
 		result.setLanes(linkInfo.getLanes());

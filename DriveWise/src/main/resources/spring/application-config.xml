@@ -9,6 +9,12 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
+	<context:component-scan base-package="com.drivewise.smarttraffic.api" />
+	<context:component-scan base-package="com.drivewise.smarttraffic.predictor" />
+	<context:component-scan base-package="com.drivewise.smarttraffic.repository" />
+	<context:component-scan base-package="com.drivewise.smarttraffic.scheduler" />
+	<context:component-scan base-package="com.drivewise.smarttraffic.service" />
+	<context:component-scan base-package="com.drivewise.smarttraffic.store" />
 	<!-- JDBC Settings -->
 	<context:property-placeholder location="classpath:application.properties, classpath:database/jdbc.properties"/>
 	

@@ -8,8 +8,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.drivewise.smarttraffic.dto.LinkTrafficDTO;
-import com.drivewise.smarttraffic.dto.TrafficInfoDTO;
+import com.drivewise.smarttraffic.api.dto.LinkTrafficDTO;
+import com.drivewise.smarttraffic.api.dto.TrafficInfoDTO;
 
 @Repository
 public class LinkTrafficRepository implements ILinkTrafficRepository {

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import com.drivewise.smarttraffic.dto.LinkTrafficDTO;
+import com.drivewise.smarttraffic.api.dto.LinkTrafficDTO;
 import com.drivewise.smarttraffic.repository.ILinkTrafficRepository;
 
 import lombok.extern.slf4j.Slf4j;

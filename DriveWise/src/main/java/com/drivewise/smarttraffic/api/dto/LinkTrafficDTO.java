@@ -1,16 +1,19 @@
 package com.drivewise.smarttraffic.api.dto;
 
+import java.util.List;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class LinkTrafficDTO {
-	private long linkId;
-	private Date prcn_dt;
-	private int tfvl;
-	private int averageSpeed;
-	private int sped;
-	
+    private String result;
+    
+    @JsonProperty("info_cnt")
+    private int infoCnt;
+    
+    private List<TrafficInfoDTO> info;
 }
